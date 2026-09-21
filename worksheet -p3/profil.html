@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+<html lang="id">
+<head>
+     <meta charset="utf-8">
+     <meta nama="viewport" content="width=device-width,initial-scale=1.0">
+     <title>Daftar Makanan Favorite Nazla</title>
+</head>
+<body>
+
+  
+  <header>
+    <h1>daftar makanan favorite nazla   </h1>
+    <p>Halaman catatan makanan favorite saya beserta jenis,harga dan rating.</p>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#daftar-makanan">Daftar Manakan</a></li>
+        <li><a href="#makanan-favorite">Makanan Favorite</a></li>
+        <li><a href="#tambah-makanan">Tambah Makanan</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+   <!-- Section 1: Tabel Daftar Makanan -->
+        <section id="daftar-makanan">
+            <h2>Makanan Favorit Nazla</h2>
+
+            <table>
+                <caption>Daftar Makanan Favorit Saya</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nama Makanan</th>
+                        <th scope="col">Jenis</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Nasi Goreng</th>
+                        <td>Makanan</td>
+                        <td>Rp15.000</td>
+                        <td>5/5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mie Ayam</th>
+                        <td>Makanan</td>
+                        <td>Rp12.000</td>
+                        <td>5/5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ayam Geprek</th>
+                        <td>Makanan</td>
+                        <td>Rp15.000</td>
+                        <td>4/5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <figure id="makanan-favorit">
+                <img src="makanan.jpeg" alt="Kumpulan makanan favorit"width="640" height="360">
+                <figcaption> Makanan favorit yang saya sukai.</figcaption>
+            </figure>
+        </section>
+
+
+        <!-- Section 2: Form Tambah Makanan -->
+        <section id="tambah-makanan">
+            <h2>Tambah Makanan Favorit</h2>
+
+            <form action="/simpan" method="post">
+                <p>
+                    <label for="nama-makanan"> Nama Makanan</label>
+                    <input type="text" id="nama-makanan" name="nama-makanan" required placeholder="Contoh: Nasi Goreng">
+                </p>
+
+                <p>
+                    <label for="jenis-makanan"> Jenis Makanan </label>
+                    <input type="text" id="jenis-makanan" name="jenis-makanan" required placeholder="Contoh: Makanan">
+                </p>
+
+                <p>
+                    <label for="harga-makanan">  Harga </label>
+                    <input type="number" id="harga-makanan" name="harga-makanan" min="0" required  placeholder="Contoh: 15000">
+                </p>
+
+                <button type="submit"> Simpan Makanan</button>
+            </form>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>Nama: Nazla Cahyani Sofyan · NIM: 25523376 </p>
+    </footer>
+
+</body>
+</html>
