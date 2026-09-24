@@ -1,0 +1,38 @@
+/* Mengikuti pengaturan sistem */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #424242;
+    --color-fg: #FFFFFF;
+    --color-surface: #276F8B;
+    --color-border:  #FFFFFF;
+    --color-primary: #000000;
+    --color-danger:  #B00020;
+    --color-focus:   #FFFFFF;
+
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
+  }
+}
+
+
+/* Pilihan tema secara manual */
+
+.pengalih-tema {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* Tema gelap saat checkbox dipilih */
+
+:root:has(#tema:checked) {
+  --color-bg: #424242;
+  --color-fg: #FFFFFF;
+  --color-surface: #276F8B;
+  --color-border:  #FFFFFF;
+  --color-primary: #000000;
+  --color-danger:  #B00020;
+  --color-focus:   #FFFFFF;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
+}

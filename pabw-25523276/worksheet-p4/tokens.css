@@ -1,0 +1,47 @@
+ /* LAPIS 1 — primitif: nilai mentah */
+
+:root {
+    --pink-700: #000000;
+    --pink-500: #FFFFFF;
+
+    --blue-500: #424242;
+    --blue-900: #276F8B;
+
+    --gray-900: #FFFFFF;
+    --gray-50:  #FFFFFF;
+
+    --gray-danger: #B00020;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+
+    --radius-md: 0.5rem;
+    --radius-full: 999px;
+
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
+
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-xl: 1.5rem;
+    --text-3xl: 2.25rem;
+}
+
+
+/* LAPIS 2 — semantik: peran */
+
+:root {
+    --color-bg: var(--blue-500);
+    --color-fg: var(--gray-50);
+    --color-surface: var(--blue-900);
+    --color-border: var(--gray-900);
+
+    --color-primary: var(--pink-700);
+    --color-danger: var(--gray-danger);
+    --color-focus: var(--pink-500);
+
+    --card-pad: var(--space-4);
+    --section-gap: var(--space-6);
+}

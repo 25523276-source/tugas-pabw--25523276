@@ -1,0 +1,194 @@
+<!DOCTYPE html>  
+<!--  
+  KERANGKA AWAL — Halaman Profil Saya  
+  PABW 2026/2027 · Pertemuan 3  
+  
+  Cara pakai:  
+  1. Salin berkas ini, ganti nama menjadi profil.html  
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI  
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)  
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet  
+  
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —  
+  komentar itu adalah daftar periksa Anda sendiri.  
+-->  
+ 
+<html lang="id">  
+ 
+<head>  
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">  
+    <title>Daftar Makanan Favorite Nazla</title> 
+ 
+    <link rel="icon" href="data:,">  
+    <link rel="stylesheet" href="tokens.css">  
+    <link rel="stylesheet" href="base.css">  
+    <link rel="stylesheet" href="layout.css">  
+    <link rel="stylesheet" href="komponen.css">  
+    <link rel="stylesheet" href="tema.css">  
+</head>  
+ 
+<body>  
+  
+    <header>  
+        <h1>daftar makanan favorite nazla</h1>  
+        <p>Halaman catatan makanan favorite Nazla</p> 
+ 
+        <nav aria-label="Navigasi utama">  
+            <ul>  
+                <li><a href="#daftar-makanan">Daftar Manakan</a></li>  
+                <li><a href="#makanan-favorite">Makanan Favorite</a></li>  
+                <li><a href="#tambah-makanan">Tambah Makanan</a></li>  
+            </ul>  
+        </nav> 
+ 
+        <!-- Pengalih tema --> 
+        <label> 
+            <input type="checkbox" id="tema"> 
+            <span id="teks-tema">Tema Gelap</span>
+        </label> 
+    </header>  
+   
+    <main>  
+ 
+        <!-- Section 1: Tabel Daftar Makanan -->  
+        <section id="daftar-makanan">  
+            <h2>Makanan Favorit Nazla</h2>  
+  
+            <table>  
+                <thead>  
+                    <tr>  
+                        <th scope="col">Nama Makanan</th>  
+                        <th scope="col">Jenis</th>  
+                        <th scope="col">Harga</th>  
+                        <th scope="col">Rating</th>  
+                    </tr>  
+                </thead>  
+ 
+                <tbody>  
+                    <tr>  
+                        <th scope="row">Nasi Goreng</th>  
+                        <td>Makanan</td>  
+                        <td>Rp15.000</td>  
+                        <td>5/5</td>  
+                    </tr>  
+ 
+                    <tr>  
+                        <th scope="row">Ayam Lalapan</th>  
+                        <td>Makanan</td>  
+                        <td>Rp12.000</td>  
+                        <td>5/5</td>  
+                    </tr>  
+ 
+                    <tr>  
+                        <th scope="row">Ayam Geprek</th>  
+                        <td>Makanan</td>  
+                        <td>Rp15.000</td>  
+                        <td>4/5</td>  
+                    </tr>  
+                </tbody>  
+            </table>  
+  
+            <figure id="makanan-favorit">  
+                <img src="makanan.jpeg"  
+                     alt="Kumpulan makanan favorit" 
+                     width="640"  
+                     height="360">  
+ 
+                <figcaption> 
+                    Makanan favorit yang saya sukai. 
+                </figcaption>  
+            </figure>  
+        </section>  
+  
+        <!-- Section 2: Form Tambah Makanan -->  
+        <section id="tambah-makanan">  
+            <h2>Tambah Makanan Favorit</h2>  
+  
+            <form action="/simpan" method="post">  
+                <p>  
+                    <label for="nama-makanan">Nama Makanan</label>  
+                    <input  
+                        type="text"  
+                        id="nama-makanan"  
+                        name="nama-makanan"  
+                        required  
+                        placeholder="Contoh: Nasi Goreng" 
+                    >  
+                </p>  
+  
+                <p>  
+                    <label for="jenis-makanan">Jenis Makanan</label>  
+                    <input  
+                        type="text"  
+                        id="jenis-makanan"  
+                        name="jenis-makanan"  
+                        required  
+                        placeholder="Contoh: Makanan" 
+                    >  
+                </p>  
+  
+                <p>  
+                    <label for="harga-makanan">Harga</label>  
+                    <input  
+                        type="number"  
+                        id="harga-makanan"  
+                        name="harga-makanan"  
+                        min="0"  
+                        required   
+                        placeholder="Contoh: 15000" 
+                    >  
+                </p>  
+  
+                <button type="submit">Simpan Makanan</button>  
+            </form>  
+        </section>  
+ 
+    </main>  
+  
+    <footer>  
+        <p>Nama: Nazla Cahyani Sofyan · NIM: 25523376</p>  
+    </footer>  
+  
+    <script>  
+        const form = document.querySelector('form');  
+  
+        form.addEventListener('submit', function(event) {  
+            event.preventDefault();  
+  
+            const nama = document.getElementById('nama-makanan').value;  
+            const jenis = document.getElementById('jenis-makanan').value;  
+            const harga = document.getElementById('harga-makanan').value;  
+  
+            const tabel = document.querySelector('tbody');  
+  
+            const baris = document.createElement('tr');  
+  
+            baris.innerHTML = `  
+                <th scope="row">${nama}</th>  
+                <td>${jenis}</td>  
+                <td>Rp${Number(harga).toLocaleString('id-ID')}</td>  
+                <td>-</td>  
+            `;  
+  
+            tabel.appendChild(baris);  
+  
+            form.reset();  
+        });
+
+
+        /* Pengalih tema */
+        const tema = document.getElementById('tema');
+        const teksTema = document.getElementById('teks-tema');
+
+        tema.addEventListener('change', function() {
+            if (tema.checked) {
+                teksTema.textContent = 'Tema Terang';
+            } else {
+                teksTema.textContent = 'Tema Gelap';
+            }
+        });
+    </script>  
+ 
+</body>  
+</html>
