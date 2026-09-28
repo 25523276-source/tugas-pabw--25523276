@@ -3,23 +3,23 @@
 Repo ini memuat pekerjaan mata kuliah Pengembangan Aplikasi
 Berbasis Web, satu folder untuk setiap pertemuan.
 
-## Pertemuan 4 - Design token halaman profil
+## Pertemuan 4 - Design Token Halaman Profil
 
 - Berkas gaya yang akan dibuat: tokens.css, base.css,
   layout.css, komponen.css, tema.css
-- Warna utama: #000000(Hitam), dipilih karena saya suka warna tersebut
+- Warna utama: #000000 (Hitam), dipilih karena saya suka warna tersebut
 
-### Token yang saya tetapkan
+### Token yang Saya Tetapkan
 
 | Token | Nilai | Untuk apa |
 |---|---|---|
-| --color-primary |  #000000 | tombol, tautan, penanda |
+| --color-primary | #000000 | tombol, tautan, penanda |
 | --color-fg | #FFFFFF | warna teks utama |
-| --color-bg | #424242  | latar halaman |
-| --color-surface |  #276F8B | latar kartu dan panel |
-| --color-border | #000000  | garis pemisah |
-| --color-danger | #FFFFFF | peringatan |
-| --color-focus | #000000 | garis fokus saat menggunakan keyboard |
+| --color-bg | #424242 | latar halaman |
+| --color-surface | #276F8B | latar kartu dan panel |
+| --color-border | #FFFFFF | garis pemisah |
+| --color-danger | #B00020 | peringatan |
+| --color-focus | #FFFFFF | garis fokus saat menggunakan keyboard |
 | --space-1 | 0.25rem | jarak paling rapat, di dalam komponen |
 | --space-2 | 0.5rem | jarak antar label dan isian |
 | --space-3 | 0.75rem | jarak di dalam kartu |
@@ -36,7 +36,7 @@ Berbasis Web, satu folder untuk setiap pertemuan.
 Kriteria selesai saya: mengubah --color-primary di satu baris
 harus mengubah warna tombol, tautan, judul, dan garis fokus.
 
-## Pertemuan 3 - Halaman profil saya
+## Pertemuan 3 - Halaman Profil Saya
 
 Topik halaman saya: Daftar Makanan Favorit Saya.
 
@@ -48,5 +48,6 @@ Topik halaman saya: Daftar Makanan Favorit Saya.
 - Kolom form: Nama Makanan, Jenis Makanan, Harga
 - Gambar: makanan.jpeg
 
-## catatan penggunaan AI
+## Catatan Penggunaan AI
+
 tidak menggunakan AI
