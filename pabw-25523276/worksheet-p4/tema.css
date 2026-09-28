@@ -22,17 +22,27 @@
   pointer-events: none;
 }
 
+:root {
+  --color-bg: #FFFFFF;
+  --color-fg: #424242;
+  --color-surface: #FFFFFF;
+  --color-border: #000000;
+  --color-primary: #000000;
+  --color-danger: #B00020;
+  --color-focus: #000000;
 
-/* Tema gelap saat checkbox dipilih */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
+}
+
 
 :root:has(#tema:checked) {
   --color-bg: #424242;
   --color-fg: #FFFFFF;
   --color-surface: #276F8B;
-  --color-border:  #FFFFFF;
+  --color-border: #FFFFFF;
   --color-primary: #000000;
-  --color-danger:  #B00020;
-  --color-focus:   #FFFFFF;
+  --color-danger: #B00020;
+  --color-focus: #FFFFFF;
 
   --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
 }
