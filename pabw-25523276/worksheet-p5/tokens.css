@@ -1,86 +1,47 @@
+/* LAPIS 1 — primitif: nilai mentah */
+
 :root {
-    
-    --pink-700: #9D174D;
-    --pink-500: #EC4899;
+    --pink-700: #000000;
+    --pink-500: #FFFFFF;
 
-    --blue-500: #2563EB;
-    --blue-900: #1E3A8A;
+    --blue-500: #424242;
+    --blue-900: #276F8B;
 
-    --gray-900: #0F172A;
-    --gray-50: #F8FAFC;
-    --gray-300: #D1D5DB;
-    --gray-600: #475569;
+    --gray-900: #FFFFFF;
+    --gray-50:  #FFFFFF;
 
     --gray-danger: #B00020;
-    --white: #FFFFFF;
-    --black: #000000;
 
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
     --space-4: 1rem;
     --space-6: 1.5rem;
+
     --radius-md: 0.5rem;
     --radius-full: 999px;
+
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
+
     --text-sm: 0.875rem;
     --text-md: 1rem;
     --text-xl: 1.5rem;
     --text-3xl: 2.25rem;
-
-   
-    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.10);
 }
 
+
+/* LAPIS 2 — semantik: peran */
+
 :root {
-    color-scheme: light;
+    --color-bg: var(--blue-500);
+    --color-fg: var(--gray-50);
+    --color-surface: var(--blue-900);
+    --color-border: var(--gray-900);
 
-    --color-bg: var(--gray-50);
-    --color-fg: var(--gray-900);
-    --color-surface: var(--white);
-    --color-border: var(--gray-300);
-
-    --color-primary: var(--blue-500);
-    --color-primary-text: var(--white);
+    --color-primary: var(--pink-700);
     --color-danger: var(--gray-danger);
-    --color-focus: var(--pink-700);
+    --color-focus: var(--pink-500);
 
     --card-pad: var(--space-4);
     --section-gap: var(--space-6);
-
-    --shadow-card: var(--shadow-1);
-}
-
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-
-        --color-bg: #111827;
-        --color-fg: #F9FAFB;
-        --color-surface: #1F2937;
-        --color-border: #64748B;
-
-        --color-primary: #2563EB;
-        --color-primary-text: #FFFFFF;
-        --color-danger: #FF6B81;
-        --color-focus: #FBBF24;
-
-        --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.45);
-    }
-}
-
-:root:has(#tema:checked) {
-    color-scheme: dark;
-
-    --color-bg: #111827;
-    --color-fg: #F9FAFB;
-    --color-surface: #1F2937;
-    --color-border: #64748B;
-
-    --color-primary: #2563EB;
-    --color-primary-text: #FFFFFF;
-    --color-danger: #FF6B81;
-    --color-focus: #FBBF24;
-
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
