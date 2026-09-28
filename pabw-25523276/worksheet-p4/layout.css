@@ -8,6 +8,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
+    flex-wrap: wrap;
 }
 
 .navbar {
@@ -33,19 +34,39 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+/* KERANGKA HALAMAN */
+
 .page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     min-height: 100dvh;
 }
 
+
+/* BAGIAN UTAMA */
+
 .isi {
     display: grid;
+
+    /* kolom kiri = menu, kolom kanan = isi */
     grid-template-columns: 16rem 1fr;
+
+    /* sidebar memanjang dari atas sampai bawah */
+    grid-template-areas:
+        "sisi utama"
+        "sisi bawah";
+
     gap: var(--space-6);
     padding-block: var(--space-6);
 }
 
 
+/* MENU KIRI */
+
 .sisi {
+    grid-area: sisi;
+
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -59,14 +80,24 @@ nav a:hover {
     padding-left: var(--space-4);
 }
 
+
+/* BAGIAN TABEL + GAMBAR */
+
 .utama {
+    grid-area: utama;
     min-width: 0;
 }
 
+
+/* BAGIAN FORM */
+
 .bawah {
+    grid-area: bawah;
     min-width: 0;
-    margin-top: var(--space-6);
 }
+
+
+/* FOOTER */
 
 footer {
     padding-block: var(--space-4);
