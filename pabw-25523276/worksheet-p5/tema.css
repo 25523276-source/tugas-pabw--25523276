@@ -20,6 +20,19 @@
   pointer-events: none;
 }
 
+/* Tema terang - keadaan awal */
+
+:root {
+  --color-bg: #FFFFFF;
+  --color-fg: #424242;
+  --color-surface: #FFFFFF;
+  --color-border: #424242;
+  --color-primary: #000000;
+  --color-danger: #B00020;
+  --color-focus: #FFFFFF;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
+}
 
 /* Tema gelap saat checkbox dipilih */
 
