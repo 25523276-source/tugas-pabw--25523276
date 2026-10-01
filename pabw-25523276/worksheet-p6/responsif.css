@@ -1,11 +1,16 @@
 /* dasar: berlaku di semua lebar */
-.content {
+.isi {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas:
+       "sisi"
+       "utama"
+       "bawah";
   gap: var(--space-4);
+
 }
 
-.grid {
+.galeri {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
@@ -13,11 +18,17 @@
 
 /* tablet: galeri dua kolom */
 @media (min-width: 48rem) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .galeri { 
+    grid-template-columns: repeat(2, 1fr); }
 }
 
 /* desktop: sidebar bersanding dengan konten */
 @media (min-width: 60rem) {
-  .content { grid-template-columns: 16rem 1fr; }
-  .grid { grid-template-columns: repeat(3, 1fr); }
+  .isi {
+     grid-template-columns: 16rem 1fr; 
+    }
+
+  .galeri { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
 }
