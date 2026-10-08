@@ -47,3 +47,17 @@
 
   --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
 }
+
+/* CHECKBOX TEMA */
+
+label:has(#tema) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+#tema {
+    width: auto;
+    cursor: pointer;
+}
