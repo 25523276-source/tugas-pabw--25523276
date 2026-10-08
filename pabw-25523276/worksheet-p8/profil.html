@@ -31,28 +31,79 @@
 
 <body>
 
-    <div class="page">
+<div class="page">
 
-        <header>
-            <h1>Daftar Makanan Favorite Nazla</h1>
+    <!-- HEADER -->
+    <header>
 
-            <nav aria-label="Navigasi utama">
-                <a href="#profil-saya">Profil</a>
-                <a href="#daftar-makanan">Daftar Makanan</a>
-                <a href="#makanan-favorite">Makanan Favorite</a>
-                <a href="#tambah-makanan">Tambah Makanan</a>
+        <h1>Daftar Makanan Favorite Nazla</h1>
 
-                <label>
-                    <input type="checkbox" id="tema">
-                    tema gelap
-                </label>
-            </nav>
-        </header>
+        <p>Halaman catatan makanan favorite Nazla</p>
+
+        <nav aria-label="Navigasi utama">
+
+            <a href="#profil-saya">Profil</a>
+
+            <a href="#daftar-makanan">
+                Daftar Makanan
+            </a>
+
+            <a href="#makanan-favorite">
+                Makanan Favorite
+            </a>
+
+            <a href="#tambah-makanan">
+                Tambah Makanan
+            </a>
+
+            <label>
+                <input type="checkbox" id="tema">
+                Tema Gelap
+            </label>
+
+        </nav>
+
+    </header>
 
 
-        <main class="isi">
-            <section id="profil-saya" class="utama">
-                <h2>Profil Saya</h2>
+    <!-- ISI -->
+    <main class="isi">
+
+        <!-- SIDEBAR -->
+        <aside class="sisi">
+
+            <h2>Menu</h2>
+
+            <ul>
+                <li>
+                    <a href="#daftar-makanan">
+                        Daftar Makanan
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#makanan-favorite">
+                        Makanan Favorite
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tambah-makanan">
+                        Tambah Makanan
+                    </a>
+                </li>
+            </ul>
+
+        </aside>
+
+
+        <!-- KONTEN UTAMA -->
+        <section class="utama">
+
+            <!-- PROFIL P8 -->
+            <section id="profil-saya">
+
+                <h2>Profil Nazla</h2>
 
                 <p id="nama-profil"></p>
 
@@ -67,14 +118,19 @@
                     Jumlah Proyek:
                     <span id="jumlah-proyek"></span>
                 </p>
+
             </section>
 
 
-            <section id="daftar-makanan" class="utama">
-                <h2>Daftar Makanan Favorite</h2>
+            <!-- DAFTAR MAKANAN -->
+            <section id="daftar-makanan">
+
+                <h2>Makanan Favorite Nazla</h2>
 
                 <div class="table-wrap">
+
                     <table>
+
                         <thead>
                             <tr>
                                 <th>Nama Makanan</th>
@@ -85,6 +141,7 @@
                         </thead>
 
                         <tbody id="daftar-makanan-body">
+
                             <tr>
                                 <td>Nasi Goreng</td>
                                 <td>Makanan</td>
@@ -105,25 +162,38 @@
                                 <td>Rp15.000</td>
                                 <td>5/5</td>
                             </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </section>
 
 
-            <section id="makanan-favorite" class="utama">
+            <!-- GAMBAR -->
+            <section id="makanan-favorite">
+
                 <h2>Makanan Favorite</h2>
 
                 <img
                     src="makanan.jpeg"
                     alt="Kumpulan makanan favorit">
+
+                <p>
+                    Makanan favorit yang saya sukai.
+                </p>
+
             </section>
 
 
-            <section id="tambah-makanan" class="utama">
+            <!-- FORM -->
+            <section id="tambah-makanan">
+
                 <h2>Tambah Makanan</h2>
 
-                <form id="form-makanan" action="/simpan" method="post">
+                <form id="form-makanan">
 
                     <label for="nama-makanan">
                         Nama Makanan
@@ -163,20 +233,27 @@
                     </button>
 
                 </form>
+
             </section>
 
-        </main>
+        </section>
 
-        <footer>
-            <p>
-                Nama: Nazla Cahyani Sofyan · NIM: 25523376
-            </p>
-        </footer>
+    </main>
 
-    </div>
 
-    <script type="module" src="js/app.js"></script>
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            Nama: Nazla Cahyani Sofyan · NIM: 25523376
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script type="module" src="js/app.js"></script>
 
 </body>
-
 </html>

@@ -1,42 +1,18 @@
-/* dasar: berlaku di semua lebar */
 .isi {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
+    display: grid;
 
-}
+    grid-template-columns: 1fr;
 
-.utama {
-    min-width: 0;
-    width: 100%;
-}
+    grid-template-areas:
+        "sisi"
+        "utama";
 
-.header-baris {
-    flex-wrap: wrap;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     gap: var(--space-4);
 }
 
-
-/* Mencegah isi keluar dari layar */
-
-.isi,
+.sisi,
 .utama {
     min-width: 0;
-}
-
-.utama {
-    overflow-wrap: anywhere;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 .table-wrap {
@@ -44,14 +20,13 @@ img {
     overflow-x: auto;
 }
 
-form {
+img {
     max-width: 100%;
+    height: auto;
 }
 
-input,
-select,
-textarea {
-    max-width: 100%;
+.utama {
+    overflow-wrap: anywhere;
 }
 
 p {
@@ -62,7 +37,10 @@ p {
 @media (min-width: 48rem) {
 
     .isi {
-        grid-template-columns: 1fr;
+        grid-template-columns: 16rem 1fr;
+
+        grid-template-areas:
+            "sisi utama";
     }
 
 }
@@ -70,9 +48,15 @@ p {
 @media (min-width: 60rem) {
 
     .isi {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 16rem 1fr;
+
+        grid-template-areas:
+            "sisi utama";
+
         max-width: 75rem;
+
         margin-inline: auto;
+
         padding-inline: var(--space-4);
     }
 

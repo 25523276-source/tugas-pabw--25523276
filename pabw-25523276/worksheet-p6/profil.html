@@ -16,8 +16,11 @@
 <html lang="id">
 
 <head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Daftar Makanan Favorite Nazla</title>
 
@@ -27,267 +30,319 @@
     <link rel="stylesheet" href="komponen.css">
     <link rel="stylesheet" href="tema.css">
     <link rel="stylesheet" href="responsif.css">
+
 </head>
+
 
 <body>
 
-    <div class="page">
+<div class="page">
 
-        <header>
-
-            <div class="header-baris">
-
-                <div>
-                    <h1>Daftar Makanan Favorite Nazla</h1>
-                    <p>Halaman catatan makanan favorite Nazla</p>
-                </div>
-
-                <nav class="navbar" aria-label="Navigasi utama">
-                    <ul>
-                        <li>
-                            <a href="#daftar-makanan">Daftar Makanan</a>
-                        </li>
-                        <li>
-                            <a href="#makanan-favorite">Makanan Favorite</a>
-                        </li>
-                        <li>
-                            <a href="#tambah-makanan">Tambah Makanan</a>
-                        </li>
-                    </ul>
-                </nav>
+    <header>
+        <div class="header-baris">
+            <div>
+                <h1>Daftar Makanan Favorite Nazla</h1>
+                <p>
+                    Halaman catatan makanan favorite Nazla
+                </p>
 
             </div>
 
-            <label class="label-tema">
-                <input
-                    type="checkbox"
-                    id="tema"
-                    class="pengalih-tema"
-                >
-                <span id="teks-tema">Tema Gelap</span>
-            </label>
 
-        </header>
-
-
-        <main class="isi">
-            <aside class="sisi">
-
-                <h2>Menu</h2>
-
+            <nav class="navbar"
+                 aria-label="Navigasi utama">
                 <ul>
                     <li>
-                        <a href="#daftar-makanan">Daftar Makanan</a>
+                        <a href="#profil-saya">
+                            Profil
+                        </a>
                     </li>
                     <li>
-                        <a href="#makanan-favorite">Makanan Favorite</a>
+                        <a href="#daftar-makanan">
+                            Daftar Makanan
+                        </a>
                     </li>
                     <li>
-                        <a href="#tambah-makanan">Tambah Makanan</a>
+                        <a href="#makanan-favorite">
+                            Makanan Favorite
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tambah-makanan">
+                            Tambah Makanan
+                        </a>
                     </li>
                 </ul>
+            </nav>
+        </div>
 
-            </aside>
 
-            <section id="daftar-makanan" class="utama">
 
-                <h2>Makanan Favorit Nazla</h2>
+        <label class="tombol-tema" for="tema">
+            Tema Gelap
+        </label>
 
-                <div class="table-wrap"
+        <input
+            type="checkbox"
+            id="tema"
+            class="pengalih-tema"
+        >
 
-                <table>
+    </header>
 
-                    <thead>
-                        <tr>
-                            <th scope="col">Nama Makanan</th>
-                            <th scope="col">Jenis</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Rating</th>
-                        </tr>
-                    </thead>
 
-                    <tbody>
+    <main class="isi">
+        <aside class="sisi">
+            <h2>Menu</h2>
+            <ul>
+                <li>
+                    <a href="#profil-saya">
+                        Profil
+                    </a>
+                </li>
+                <li>
+                    <a href="#daftar-makanan">
+                        Daftar Makanan
+                    </a>
+                </li>
+                <li>
+                    <a href="#makanan-favorite">
+                        Makanan Favorite
+                    </a>
+                </li>
+                <li>
+                    <a href="#tambah-makanan">
+                        Tambah Makanan
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-                        <tr>
-                            <th scope="row">Nasi Goreng</th>
-                            <td>Makanan</td>
-                            <td>Rp15.000</td>
-                            <td>5/5</td>
-                        </tr>
 
-                        <tr>
-                            <th scope="row">Ayam Lalapan</th>
-                            <td>Makanan</td>
-                            <td>Rp12.000</td>
-                            <td>5/5</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">Ayam Geprek</th>
-                            <td>Makanan</td>
-                            <td>Rp15.000</td>
-                            <td>5/5</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
+        <section class="utama">
 
 
             
-                <figure
-                    id="makanan-favorite"
-                    class="galeri sorotan"
+            <section id="profil-saya">
+                <h2>Profil Nazla</h2>
+                <p id="nama-profil"></p>
+                <p id="peran-profil"></p>
+                <p>
+                    Keahlian:
+                    <span id="keahlian-profil"></span>
+                </p>
+                <p>
+                    Jumlah Proyek:
+                    <span id="jumlah-proyek"></span>
+                </p>
+
+            </section>
+
+
+            <section id="daftar-makanan">
+                <h2>Makanan Favorit Nazla</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    Nama Makanan
+                                </th>
+                                <th scope="col">
+                                    Jenis
+                                </th>
+                                <th scope="col">
+                                    Harga
+                                </th>
+                                <th scope="col">
+                                    Rating
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody id="daftar-makanan-body">
+                            <tr>
+                                <th scope="row">
+                                    Nasi Goreng
+                                </th>
+                                <td>
+                                    Makanan
+                                </td>
+                                <td>
+                                    Rp15.000
+                                </td>
+                                <td>
+                                    5/5
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th scope="row">
+                                    Ayam Lalapan
+                                </th>
+                                <td>
+                                    Makanan
+                                </td>
+                                <td>
+                                    Rp12.000
+                                </td>
+                                <td>
+                                    5/5
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th scope="row">
+                                    Ayam Geprek
+                                </th>
+                                <td>
+                                    Makanan
+                                </td>
+                                <td>
+                                    Rp15.000
+                                </td>
+                                <td>
+                                    5/5
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <figure
+                id="makanan-favorite"
+                class="galeri sorotan"
+            >
+
+                <img
+                    src="makanan.jpeg"
+                    alt="Kumpulan makanan favorit"
                 >
 
-                    <img
-                        src="makanan.jpeg"
-                        alt="Kumpulan makanan favorit"
+                <figcaption>
+                    Makanan favorit yang saya sukai.
+                </figcaption>
+
+            </figure>
+
+
+        </section>
+
+
+
+        <!-- TAMBAH MAKANAN -->
+
+        <section
+            id="tambah-makanan"
+            class="bawah"
+        >
+
+            <h2>
+                Tambah Makanan Favorit
+            </h2>
+
+
+            <form
+                id="form-makanan"
+                action="/simpan"
+                method="post"
+            >
+
+                <p>
+
+                    <label for="nama-makanan">
+                        Nama Makanan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama-makanan"
+                        name="nama-makanan"
+                        required
+                        placeholder="Contoh: Nasi Goreng"
                     >
 
-                    <figcaption>
-                        Makanan favorit yang saya sukai.
-                    </figcaption>
-
-                </figure>
-
-            </section>
-
-            <section id="tambah-makanan" class="bawah">
-
-                <h2>Tambah Makanan Favorit</h2>
-
-                <form action="/simpan" method="post">
-
-                    <p>
-                        <label for="nama-makanan">
-                            Nama Makanan
-                        </label>
-
-                        <input
-                            type="text"
-                            id="nama-makanan"
-                            name="nama-makanan"
-                            required
-                            placeholder="Contoh: Nasi Goreng"
-                        >
-                    </p>
+                </p>
 
 
-                    <p>
-                        <label for="jenis-makanan">
-                            Jenis Makanan
-                        </label>
+                <p>
 
-                        <input
-                            type="text"
-                            id="jenis-makanan"
-                            name="jenis-makanan"
-                            required
-                            placeholder="Contoh: Makanan"
-                        >
-                    </p>
+                    <label for="jenis-makanan">
+                        Jenis Makanan
+                    </label>
 
+                    <input
+                        type="text"
+                        id="jenis-makanan"
+                        name="jenis-makanan"
+                        required
+                        placeholder="Contoh: Makanan"
+                    >
 
-                    <p>
-                        <label for="harga-makanan">
-                            Harga
-                        </label>
-
-                        <input
-                            type="number"
-                            id="harga-makanan"
-                            name="harga-makanan"
-                            min="0"
-                            required
-                            placeholder="Contoh: 15000"
-                        >
-                    </p>
+                </p>
 
 
-                    <div class="kartu__kaki">
-                        <button type="submit">
-                            Simpan Makanan
-                        </button>
-                    </div>
+                <p>
 
-                </form>
+                    <label for="harga-makanan">
+                        Harga
+                    </label>
 
-            </section>
+                    <input
+                        type="number"
+                        id="harga-makanan"
+                        name="harga-makanan"
+                        min="0"
+                        required
+                        placeholder="Contoh: 15000"
+                    >
 
-        </main>
-
-        <footer>
-
-            <p>
-                Nama: Nazla Cahyani Sofyan · NIM: 25523376
-            </p>
-
-        </footer>
-
-    </div>
+                </p>
 
 
-    <script>
+                <div class="kartu__kaki">
 
-    
-        const form = document.querySelector('form');
+                    <button type="submit">
+                        Simpan Makanan
+                    </button>
 
-        form.addEventListener('submit', function(event) {
+                </div>
 
-            event.preventDefault();
+            </form>
 
-            const nama =
-                document.getElementById('nama-makanan').value;
+        </section>
 
-            const jenis =
-                document.getElementById('jenis-makanan').value;
 
-            const harga =
-                document.getElementById('harga-makanan').value;
+    </main>
 
-            const tabel =
-                document.querySelector('tbody');
+    <footer>
 
-            const baris =
-                document.createElement('tr');
+        <p>
+            Nama: Nazla Cahyani Sofyan · NIM: 25523376
+        </p>
 
-            baris.innerHTML = `
-                <th scope="row">${nama}</th>
-                <td>${jenis}</td>
-                <td>Rp${Number(harga).toLocaleString('id-ID')}</td>
-                <td>-</td>
-            `;
+    </footer>
 
-            tabel.appendChild(baris);
 
-            form.reset();
+</div>
 
-        });
 
-        const tema =
-            document.getElementById('tema');
 
-        const teksTema =
-            document.getElementById('teks-tema');
+<!-- JAVASCRIPT P8 -->
 
-        tema.addEventListener('change', function() {
+<script
+    type="module"
+    src="js/app.js">
+</script>
 
-            if (tema.checked) {
-
-                teksTema.textContent = 'Tema Terang';
-
-            } else {
-
-                teksTema.textContent = 'Tema Gelap';
-
-            }
-
-        });
-
-    </script>
 
 </body>
+
 </html>
