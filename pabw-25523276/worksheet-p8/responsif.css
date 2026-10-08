@@ -1,0 +1,82 @@
+/* dasar: berlaku di semua lebar */
+.isi {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+       "sisi"
+       "utama"
+       "bawah";
+  gap: var(--space-4);
+
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+
+}
+
+/* Navbar boleh turun ke baris berikutnya */
+
+.header-baris {
+    flex-wrap: wrap;
+}
+
+nav ul {
+    flex-wrap: wrap;
+}
+
+/* Mencegah isi melebar keluar layar */
+
+.isi,
+.utama,
+.bawah,
+.galeri {
+    min-width: 0;
+}
+
+.utama,
+.bawah {
+    overflow-wrap: anywhere;
+}
+
+/* gambar responsif */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* tabel dapat bergeser sendiri jika terlalu lebar */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+/* ukuran teks */
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* tablet: galeri dua kolom */
+@media (min-width: 48rem) {
+  .galeri { 
+    grid-template-columns: repeat(2, 1fr); }
+}
+
+/* desktop: sidebar bersanding dengan konten */
+@media (min-width: 60rem) {
+  .isi {
+     grid-template-columns: 16rem 1fr; 
+     grid-template-areas:
+            "sisi utama"
+            "sisi bawah";
+    }
+
+  .galeri { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
