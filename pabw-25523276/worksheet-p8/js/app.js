@@ -127,6 +127,15 @@ console.log("Hasil find:");
 
 console.log(proyekDicari);
 
+const proyekUrut = [...daftarProyek].sort((a, b) => {
+    return a.tahun - b.tahun;
+});
+
+console.log("Hasil setelah sort:");
+console.table(proyekUrut);
+
+console.log("Data asli setelah sort:");
+console.table(daftarProyek);
 
 // ========================================
 // MENAMPILKAN DATA PROFIL KE HTML
