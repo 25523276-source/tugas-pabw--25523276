@@ -337,3 +337,5 @@ if (tema) {
     );
 
 }
+
+export { daftarProyek };
