@@ -98,3 +98,14 @@ footer {
     font-size: var(--text-sm);
     text-align: center;
 }
+
+.bawah {
+    min-width: 0;
+    width: 100%;
+}
+
+.isi > .bawah {
+    grid-column: 2;
+    grid-area: auto;
+    width: 100%;
+}
