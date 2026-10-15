@@ -1,91 +1,95 @@
 header {
-    padding-block: var(--space-4);
-    border-bottom: 1px solid var(--color-border);
-}
-
-header p {
-    margin-top: var(--space-1);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header-baris {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-    margin-top: var(--space-2);
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 nav ul {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
 }
 
 nav a {
-    color: var(--color-primary);
-    text-decoration: none;
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
 nav a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
 }
 
 .isi {
-    display: grid;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
 
-    grid-template-columns: 16rem minmax(0, 1fr);
-    grid-template-areas:
-        "sisi utama";
-    gap: var(--space-6);
-    padding-block: var(--space-6);
+  grid-template-areas:
+    "sisi utama"
+    "sisi bawah";
+
+  gap: var(--space-6);
+  padding-block: var(--space-6);
 }
+
+
 
 .sisi {
-    grid-area: sisi;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--card-pad);
-}
-
-.sisi h2 {
-    margin-top: 0;
-}
-
-.sisi ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin: 0;
-    padding-left: var(--space-4);
-}
-
-.sisi a {
-    color: var(--color-primary);
+  grid-area: sisi;
 }
 
 .utama {
-    grid-area: utama;
-    min-width: 0;
+  grid-area: utama;
 }
 
 .bawah {
-    min-width: 0;
+  grid-area: bawah;
+}
+
+.sisi,
+.utama,
+.bawah {
+  min-width: 0;
+}
+
+.sisi {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--card-pad);
+}
+
+.sisi ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
 }
 
 footer {
-    padding-block: var(--space-4);
-    border-top: 1px solid var(--color-border);
-    color: var(--color-fg);
-    font-size: var(--text-sm);
-    text-align: center;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
 }
