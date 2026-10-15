@@ -1,0 +1,63 @@
+.isi {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+        "sisi"
+        "utama";
+
+    gap: var(--space-4);
+}
+
+.sisi,
+.utama {
+    min-width: 0;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.utama {
+    overflow-wrap: anywhere;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (min-width: 48rem) {
+
+    .isi {
+        grid-template-columns: 16rem 1fr;
+
+        grid-template-areas:
+            "sisi utama";
+    }
+
+}
+
+@media (min-width: 60rem) {
+
+    .isi {
+        grid-template-columns: 16rem 1fr;
+
+        grid-template-areas:
+            "sisi utama";
+
+        max-width: 75rem;
+
+        margin-inline: auto;
+
+        padding-inline: var(--space-4);
+    }
+
+}
