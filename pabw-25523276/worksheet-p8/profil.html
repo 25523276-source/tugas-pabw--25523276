@@ -12,19 +12,13 @@
   Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
   komentar itu adalah daftar periksa Anda sendiri.
 -->
-  
+
 <html lang="id">
-
 <head>
-
     <meta charset="utf-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-
     <title>Daftar Makanan Favorite Nazla</title>
-
-    <!-- CSS dari P6 -->
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="layout.css">
@@ -33,27 +27,20 @@
     <link rel="stylesheet" href="responsif.css">
 
 </head>
-
-
 <body>
-
-<div class="page">
-
-    
+<div class="page"> 
 
     <header>
         <div class="header-baris">
             <div>
                 <h1>Daftar Makanan Favorite Nazla</h1>
                 <p>
-                    Halaman catatan makanan favorite Nazla
-                </p>
+                    Halaman catatan makanan favorite Nazla  </p>
             </div>
 
 
             <nav class="navbar"
                  aria-label="Navigasi utama">
-
                 <ul>
                     <li>
                         <a href="#profil-saya">
@@ -85,18 +72,14 @@
         >
             Tema Gelap
         </label>
-
         <input
             type="checkbox"
             id="tema"
             class="pengalih-tema"
         >
-
     </header>
 
     <main class="isi">
-
-
         <aside class="sisi">
             <h2>Menu</h2>
             <ul>
@@ -123,9 +106,7 @@
             </ul>
         </aside>
 
-
         <section class="utama">
-
             <section id="profil-saya">
                 <h2>Profil Nazla</h2>
                 <p id="nama-profil"></p>
@@ -138,7 +119,6 @@
                     Jumlah Proyek:
                     <span id="jumlah-proyek"></span>
                 </p>
-
             </section>
             <section id="proyek-saya">
                 <h2>Daftar Proyek</h2>
@@ -146,13 +126,11 @@
                 </ul>
             </section>
 
-
             <section id="daftar-makanan">
                 <h2>Makanan Favorit Nazla</h2>
                 <div class="table-wrap">
                     <table>
                         <thead>
-
                             <tr>
                                 <th scope="col">
                                     Nama Makanan
@@ -169,9 +147,7 @@
                             </tr>
                         </thead>
 
-
                         <tbody id="daftar-makanan-body">
-
                             <tr>
                                 <th scope="row">
                                     Nasi Goreng
@@ -187,7 +163,6 @@
                                 </td>
                             </tr>
 
-
                             <tr>
                                 <th scope="row">
                                     Ayam Lalapan
@@ -202,7 +177,6 @@
                                     5/5
                                 </td>
                             </tr>
-
 
                             <tr>
                                 <th scope="row">
@@ -221,7 +195,7 @@
                         </tbody>
                     </table>
                 </div>
-            </section>
+                    <section class="utama">
 
             <figure
                 id="makanan-favorite"
@@ -236,87 +210,63 @@
                 </figcaption>
             </figure>
 
-
-        </section>
-
-        <section
-            id="tambah-makanan"
-            class="bawah"
-        >
-            <h2>
-                Tambah Makanan Favorit
-            </h2>
-
-
-            <form
-                id="form-makanan"
-                action="/simpan"
-                method="post"
+            <section
+                id="tambah-makanan"
+                class="bawah"
             >
+                <h2>
+                    Tambah Makanan Favorit
+                </h2>
+                <form
+                    id="form-makanan"
+                    action="/simpan"
+                    method="post"
+                >
 
-                <p>
-                    <label for="nama-makanan">
-                        Nama Makanan
-                    </label>
-                    
-                    <input
-                        type="text"
-                        id="nama-makanan"
-                        name="nama-makanan"
-                        required
-                        placeholder="Contoh: Nasi Goreng"
-                    >
-                </p>
+                    <p>
+                        <label for="nama-makanan">
+                            Nama Makanan
+                        </label>
 
+                        <input
+                            type="text"
+                            id="nama-makanan"
+                            name="nama-makanan"
+                            required
+                            placeholder="Contoh: Nasi Goreng"
+                        >
+                    </p>
 
-                <p>
-                    <label for="jenis-makanan">
-                        Jenis Makanan
-                    </label>
+                    <p>
+                        <label for="jenis-makanan">
+                            Jenis Makanan
+                        </label>
+                        <input
+                            type="text"
+                            id="jenis-makanan"
+                            name="jenis-makanan"
+                            required
+                            placeholder="Contoh: Makanan"
+                        >
+                    </p>
+                    <p>
+                        <label for="harga-makanan">
+                            Harga
+                        </label>
+                        <input
+                            type="number"
+                            id="harga-makanan"
+                            name="harga-makanan"
+                            min="0"
+                            required
+                            placeholder="Contoh: 15000"
+                        > </p>
 
-                    <input
-                        type="text"
-                        id="jenis-makanan"
-                        name="jenis-makanan"
-                        required
-                        placeholder="Contoh: Makanan"
-                    >
-                </p>
-                <p>
-                    <label for="harga-makanan">
-                        Harga
-                    </label>
-                    <input
-                        type="number"
-                        id="harga-makanan"
-                        name="harga-makanan"
-                        min="0"
-                        required
-                        placeholder="Contoh: 15000"
-                    >
-                </p>
-                <div class="kartu__kaki">
-                    <button type="submit">
-                        Simpan Makanan
-                    </button>
-                </div>
-            </form>
+                    <div class="kartu__kaki">
+                        <button type="submit">
+                            Simpan Makanan
+                        </button>
+                    </div>
+                </form>
+            </section>
         </section>
-
-
-    </main>
-    <footer>
-        <p>
-            Nama: Nazla Cahyani Sofyan · NIM: 25523376
-        </p>
-    </footer>
-
-
-</div>
-
-<script type="module"src="js/app.js"></script>
-
-
-</body>
-
-</html>
