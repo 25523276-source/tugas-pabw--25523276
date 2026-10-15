@@ -1,3 +1,9 @@
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+}
+
 header {
     padding-block: var(--space-4);
     border-bottom: 1px solid var(--color-border);
@@ -7,12 +13,30 @@ header p {
     margin-top: var(--space-1);
 }
 
+.header-baris {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
 nav {
     display: flex;
     align-items: center;
     gap: var(--space-4);
     flex-wrap: wrap;
     margin-top: var(--space-2);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
 nav a {
@@ -24,44 +48,33 @@ nav a:hover {
     text-decoration: underline;
 }
 
-.page {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100dvh;
-}
-
 .isi {
     display: grid;
 
-    grid-template-columns: 16rem 1fr;
-
+    grid-template-columns: 16rem minmax(0, 1fr);
     grid-template-areas:
         "sisi utama";
-
-    gap: var(--space-6);
-
-    padding-block: var(--space-6);
+    gap: var(--space-4);
+    padding-block: var(--space-4);
 }
 
 .sisi {
     grid-area: sisi;
-
     background: var(--color-surface);
-
     border: 1px solid var(--color-border);
-
     border-radius: var(--radius-md);
-
     padding: var(--card-pad);
+}
+
+.sisi h2 {
+    margin-top: 0;
 }
 
 .sisi ul {
     display: flex;
-
     flex-direction: column;
-
     gap: var(--space-2);
-
+    margin: 0;
     padding-left: var(--space-4);
 }
 
@@ -71,16 +84,17 @@ nav a:hover {
 
 .utama {
     grid-area: utama;
+    min-width: 0;
+}
 
+.bawah {
     min-width: 0;
 }
 
 footer {
     padding-block: var(--space-4);
-
     border-top: 1px solid var(--color-border);
-
     color: var(--color-fg);
-
     font-size: var(--text-sm);
+    text-align: center;
 }
