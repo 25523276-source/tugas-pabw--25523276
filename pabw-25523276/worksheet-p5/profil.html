@@ -12,15 +12,11 @@
   Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
   komentar itu adalah daftar periksa Anda sendiri.
 -->
-
 <html lang="id">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
     <title>Daftar Makanan Favorite Nazla</title>
-
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="base.css">
@@ -30,18 +26,13 @@
 </head>
 
 <body>
-
     <div class="page">
-
         <header>
-
             <div class="header-baris">
-
                 <div>
                     <h1>Daftar Makanan Favorite Nazla</h1>
                     <p>Halaman catatan makanan favorite Nazla</p>
                 </div>
-
                 <nav class="navbar" aria-label="Navigasi utama">
                     <ul>
                         <li>
@@ -55,9 +46,7 @@
                         </li>
                     </ul>
                 </nav>
-
             </div>
-
             <label class="label-tema">
                 <input
                     type="checkbox"
@@ -66,15 +55,11 @@
                 >
                 <span id="teks-tema">Tema Gelap</span>
             </label>
-
         </header>
-
 
         <main class="isi">
             <aside class="sisi">
-
                 <h2>Menu</h2>
-
                 <ul>
                     <li>
                         <a href="#daftar-makanan">Daftar Makanan</a>
@@ -86,7 +71,6 @@
                         <a href="#tambah-makanan">Tambah Makanan</a>
                     </li>
                 </ul>
-
             </aside>
 
             <section id="daftar-makanan" class="utama">
@@ -126,13 +110,9 @@
                             <td>Rp15.000</td>
                             <td>5/5</td>
                         </tr>
-
                     </tbody>
-
                 </table>
 
-
-            
                 <figure
                     id="makanan-favorite"
                     class="galeri sorotan"
@@ -144,26 +124,20 @@
                         width="640"
                         height="360"
                     >
-
                     <figcaption>
                         Makanan favorit yang saya sukai.
                     </figcaption>
-
                 </figure>
 
             </section>
 
             <section id="tambah-makanan" class="bawah">
-
                 <h2>Tambah Makanan Favorit</h2>
-
                 <form action="/simpan" method="post">
-
                     <p>
                         <label for="nama-makanan">
                             Nama Makanan
                         </label>
-
                         <input
                             type="text"
                             id="nama-makanan"
@@ -178,7 +152,6 @@
                         <label for="jenis-makanan">
                             Jenis Makanan
                         </label>
-
                         <input
                             type="text"
                             id="jenis-makanan"
@@ -193,7 +166,6 @@
                         <label for="harga-makanan">
                             Harga
                         </label>
-
                         <input
                             type="number"
                             id="harga-makanan"
@@ -210,81 +182,53 @@
                             Simpan Makanan
                         </button>
                     </div>
-
                 </form>
-
             </section>
-
         </main>
 
         <footer>
-
             <p>
-                Nama: Nazla Cahyani Sofyan · NIM: 25523376
-            </p>
-
+                Nama: NAZLA CAHYANI SOFYAN · NIM: 25523376 </p>
         </footer>
-
     </div>
 
 
     <script>
-
     
         const form = document.querySelector('form');
-
         form.addEventListener('submit', function(event) {
-
             event.preventDefault();
-
             const nama =
                 document.getElementById('nama-makanan').value;
-
             const jenis =
                 document.getElementById('jenis-makanan').value;
-
             const harga =
                 document.getElementById('harga-makanan').value;
-
             const tabel =
                 document.querySelector('tbody');
-
             const baris =
                 document.createElement('tr');
-
             baris.innerHTML = `
                 <th scope="row">${nama}</th>
                 <td>${jenis}</td>
                 <td>Rp${Number(harga).toLocaleString('id-ID')}</td>
                 <td>-</td>
             `;
-
             tabel.appendChild(baris);
-
             form.reset();
-
         });
 
         const tema =
             document.getElementById('tema');
-
         const teksTema =
             document.getElementById('teks-tema');
-
         tema.addEventListener('change', function() {
-
             if (tema.checked) {
-
                 teksTema.textContent = 'Tema Terang';
-
             } else {
-
                 teksTema.textContent = 'Tema Gelap';
-
             }
-
         });
-
     </script>
 
 </body>
