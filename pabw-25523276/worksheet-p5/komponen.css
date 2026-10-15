@@ -71,21 +71,24 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-
 img {
-  width: 350px;
+  width: 320px;
   height: auto;
-  margin: 0 auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-1);
 }
 
-.galeri {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+.galeri.sorotan {
+  display: flex;
+  align-items: flex-start;
   gap: var(--space-4);
+  margin: 0;
+  padding: 0;
 }
 
+.galeri.sorotan figcaption {
+  padding-top: var(--space-1);
+}
 
 .kartu__kaki {
   display: flex;
