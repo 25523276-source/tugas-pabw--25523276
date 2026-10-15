@@ -84,6 +84,11 @@ nav a:hover {
     min-width: 0;
 }
 
+.utama > section,
+.utama > figure {
+    margin-bottom: var(--space-6);
+}
+
 .bawah {
     min-width: 0;
 }
