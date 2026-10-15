@@ -51,8 +51,11 @@ nav a:hover {
     grid-template-columns: 16rem minmax(0, 1fr);
     grid-template-areas:
         "sisi utama";
-    gap: var(--space-4);
-    padding-block: var(--space-4);
+    gap: var(--space-6);
+    padding-block: var(--space-6);
+    width: 100%;
+    max-width: none;
+    margin: 0;
 }
 
 .sisi {
@@ -84,11 +87,6 @@ nav a:hover {
     min-width: 0;
 }
 
-.utama > section,
-.utama > figure {
-    margin-bottom: var(--space-6);
-}
-
 .bawah {
     min-width: 0;
 }
@@ -99,4 +97,15 @@ footer {
     color: var(--color-fg);
     font-size: var(--text-sm);
     text-align: left;
+}
+
+.bawah {
+    min-width: 0;
+    width: 100%;
+}
+
+.isi > .bawah {
+    grid-column: 2;
+    grid-area: auto;
+    width: 100%;
 }
