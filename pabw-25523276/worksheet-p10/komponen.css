@@ -36,9 +36,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-
-/* Form */
-
 label {
   display: block;
   margin-bottom: var(--space-1);
@@ -116,4 +113,32 @@ img {
 
 .galeri {
   min-width: 0;
+}
+
+.baris-filter {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.baris-filter .filter {
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  background: #000000;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.baris-filter .filter:hover {
+  background: #111111;
+}
+
+.baris-filter .filter.aktif {
+  border: 2px solid #ffffff;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 700;
 }
