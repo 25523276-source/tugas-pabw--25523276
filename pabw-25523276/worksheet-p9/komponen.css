@@ -117,3 +117,12 @@ img {
 .galeri {
   min-width: 0;
 }
+#form-makanan {
+  width: 100%;
+}
+
+#form-makanan input,
+#form-makanan select,
+#form-makanan textarea {
+  width: 100%;
+}
