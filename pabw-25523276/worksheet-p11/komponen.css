@@ -36,9 +36,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-
-/* Form */
-
 label {
   display: block;
   margin-bottom: var(--space-1);
