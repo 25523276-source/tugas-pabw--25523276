@@ -13,15 +13,14 @@
   komentar itu adalah daftar periksa Anda sendiri.
 -->
 <html lang="id">
+
 <head>
     <meta charset="utf-8">
-    
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Daftar Makanan Favorite Nazla</title>
 
-    <link rel="icon" href="data:,"> 
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="layout.css">
@@ -41,44 +40,32 @@
                     Halaman catatan makanan favorite Nazla
                 </p>
             </div>
-
-            <nav class="navbar"
-                 aria-label="Navigasi utama">
+            <nav class="navbar" aria-label="Navigasi utama">
                 <ul>
                     <li>
-                        <a href="#profil-saya">
-                            Profil
-                        </a>
+                        <a href="#profil-saya">Profil</a>
                     </li>
 
                     <li>
-                        <a href="#proyek-saya">
-                            Daftar Proyek
-                        </a>
+                        <a href="#proyek-saya">Daftar Proyek</a>
                     </li>
 
                     <li>
-                        <a href="#daftar-makanan">
-                            Daftar Makanan
-                        </a>
+                        <a href="#daftar-makanan">Daftar Makanan</a>
                     </li>
 
                     <li>
-                        <a href="#makanan-favorite">
-                            Makanan Favorite
-                        </a>
+                        <a href="#makanan-favorite">Makanan Favorite</a>
                     </li>
 
                     <li>
-                        <a href="#tambah-makanan">
-                            Tambah Makanan
-                        </a>
+                        <a href="#tambah-makanan">Tambah Makanan</a>
                     </li>
                 </ul>
             </nav>
+
         </div>
 
-        
         <label class="label-tema">
             <input
                 type="checkbox"
@@ -92,46 +79,38 @@
         </label>
     </header>
 
+
     <main class="isi">
+
         <aside class="sisi">
             <h2>Menu</h2>
+
             <ul>
                 <li>
-                    <a href="#profil-saya">
-                        Profil
-                    </a>
+                    <a href="#profil-saya">Profil</a>
                 </li>
 
                 <li>
-                    <a href="#proyek-saya">
-                        Daftar Proyek
-                    </a>
+                    <a href="#proyek-saya">Daftar Proyek</a>
                 </li>
 
                 <li>
-                    <a href="#daftar-makanan">
-                        Daftar Makanan
-                    </a>
+                    <a href="#daftar-makanan">Daftar Makanan</a>
                 </li>
 
                 <li>
-                    <a href="#makanan-favorite">
-                        Makanan Favorite
-                    </a>
+                    <a href="#makanan-favorite">Makanan Favorite</a>
                 </li>
 
                 <li>
-                    <a href="#tambah-makanan">
-                        Tambah Makanan
-                    </a>
+                    <a href="#tambah-makanan">Tambah Makanan</a>
                 </li>
             </ul>
-
         </aside>
+
 
         <section class="utama">
             <section id="profil-saya">
-
                 <h2>Profil Nazla</h2>
 
                 <p id="nama-profil">
@@ -154,11 +133,9 @@
             </section>
 
 
-
             <section id="proyek-saya">
                 <h2>Daftar Proyek</h2>
 
-               
                 <div
                     id="filter"
                     class="baris-filter"
@@ -199,6 +176,7 @@
 
                 </div>
 
+
                 <button
                     type="button"
                     id="atur-ulang"
@@ -210,6 +188,7 @@
                 <p id="muat" hidden>
                     Memuat data...
                 </p>
+
 
                 <p
                     id="kosong"
@@ -232,12 +211,15 @@
                                 <th scope="col">
                                     Nama Makanan
                                 </th>
+
                                 <th scope="col">
                                     Jenis
                                 </th>
+
                                 <th scope="col">
                                     Harga
                                 </th>
+
                                 <th scope="col">
                                     Rating
                                 </th>
@@ -246,16 +228,20 @@
 
 
                         <tbody id="daftar-makanan-body">
+
                             <tr>
                                 <th scope="row">
                                     Nasi Goreng
                                 </th>
+
                                 <td>
                                     Makanan
                                 </td>
+
                                 <td>
                                     Rp15.000
                                 </td>
+
                                 <td>
                                     5/5
                                 </td>
@@ -266,27 +252,34 @@
                                 <th scope="row">
                                     Ayam Lalapan
                                 </th>
+
                                 <td>
                                     Makanan
                                 </td>
+
                                 <td>
                                     Rp12.000
                                 </td>
+
                                 <td>
                                     5/5
                                 </td>
                             </tr>
 
+
                             <tr>
                                 <th scope="row">
                                     Ayam Geprek
                                 </th>
+
                                 <td>
                                     Makanan
                                 </td>
+
                                 <td>
                                     Rp15.000
                                 </td>
+
                                 <td>
                                     4/5
                                 </td>
@@ -296,6 +289,7 @@
                 </div>
 
             </section>
+
 
             <figure
                 id="makanan-favorite"
@@ -308,23 +302,18 @@
                     width="640"
                     height="360"
                 >
+
                 <figcaption>
                     Makanan favorit yang saya sukai.
                 </figcaption>
+
             </figure>
 
 
-            
             <section id="tambah-makanan">
                 <h2>Tambah Makanan Favorit</h2>
-                <form
-                    id="form-makanan"
-                    action="/simpan"
-                    method="post"
-                >
-
+                <form id="form-makanan">
                     <div>
-
                         <label for="nama-makanan">
                             Nama Makanan
                         </label>
@@ -336,8 +325,8 @@
                         >
 
                         <p id="galat-nama-makanan"></p>
-
                     </div>
+
 
                     <div>
                         <label for="jenis-makanan">
@@ -351,8 +340,8 @@
                         >
 
                         <p id="galat-jenis-makanan"></p>
-
                     </div>
+
 
                     <div>
                         <label for="harga-makanan">
@@ -367,7 +356,6 @@
                         >
 
                         <p id="galat-harga-makanan"></p>
-
                     </div>
 
 
@@ -378,18 +366,18 @@
                     <button type="reset">
                         Reset
                     </button>
-
                 </form>
             </section>
         </section>
     </main>
 
 
-    
     <footer>
         <p>
-            Nama: NAZLA CAHYANI SOFYAN · NIM: 25523276 </p>
+            Nama: NAZLA CAHYANI SOFYAN · NIM 25523276
+        </p>
     </footer>
+
 </div>
 
 <script type="module" src="js/app.js"></script>
