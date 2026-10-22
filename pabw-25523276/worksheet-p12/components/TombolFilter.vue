@@ -3,7 +3,7 @@ import {
     state,
     pilihKategori,
     aturUlang
-} from "../src/state.js"
+} from "../state.js"
 
 const kategori = [
     "semua",

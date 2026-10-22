@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from "vue"
 
-import { state, tambahFavorit } from "../src/state.js"
-import { saring } from "../src/data.js"
+import { state, tambahFavorit } from "../state.js"
+import { saring } from "../data.js"
 
 const tampil = computed(() => {
     return saring(
