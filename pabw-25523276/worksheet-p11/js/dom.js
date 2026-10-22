@@ -314,16 +314,10 @@ export function tambahBarisMakanan(
 
 
 export function tampilkanSemuaMakanan(daftar) {
-    const daftarMakananBody =
-        document.querySelector(
-            "#daftar-makanan-body"
-        );
-
-    if (!daftarMakananBody) {
+    if (!daftar) {
         return;
     }
 
-    daftarMakananBody.textContent = "";
     daftar.forEach((makanan) => {
         tambahBarisMakanan(
             makanan.nama,
