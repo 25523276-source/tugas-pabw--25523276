@@ -1,343 +1,269 @@
+import {
+    profil,
+    formatKeahlian,
+    saring
+} from "./data.js";
+
 const wadah = document.querySelector("#daftar-proyek");
-const filter = document.querySelector("#filter");
 const kosong = document.querySelector("#kosong");
 const muat = document.querySelector("#muat");
 
-const tombolFilter = document.querySelectorAll(".filter");
+const namaElement =
+    document.querySelector("#nama-profil");
 
-const formMakanan = document.querySelector("#form-makanan");
-const namaMakanan = document.querySelector("#nama-makanan");
-const jenisMakanan = document.querySelector("#jenis-makanan");
-const hargaMakanan = document.querySelector("#harga-makanan");
+const peranElement =
+    document.querySelector("#peran-profil");
 
-const tombolSimpan = formMakanan.querySelector(
-    'button[type="submit"]'
-);
+const keahlianElement =
+    document.querySelector("#keahlian-profil");
 
-const galatNama = document.querySelector("#galat-nama-makanan");
-const galatJenis = document.querySelector("#galat-jenis-makanan");
-const galatHarga = document.querySelector("#galat-harga-makanan");
+const jumlahProyekElement =
+    document.querySelector("#jumlah-proyek");
 
+const tombolFilter =
+    document.querySelectorAll(".filter");
 
-function buatKartu(proyek) {
+const formMakanan =
+    document.querySelector("#form-makanan");
+
+const namaMakanan =
+    document.querySelector("#nama-makanan");
+
+const jenisMakanan =
+    document.querySelector("#jenis-makanan");
+
+const hargaMakanan =
+    document.querySelector("#harga-makanan");
+
+const tombolSimpan =
+    formMakanan.querySelector(
+        'button[type="submit"]'
+    );
+
+const galatNama =
+    document.querySelector("#galat-nama-makanan");
+
+const galatJenis =
+    document.querySelector("#galat-jenis-makanan");
+
+const galatHarga =
+    document.querySelector("#galat-harga-makanan");
+
+export function tampilkanProfil(jumlah) {
+    namaElement.textContent = profil.nama;
+    peranElement.textContent = profil.peran;
+    keahlianElement.textContent =
+        formatKeahlian(profil.keahlian);
+
+    jumlahProyekElement.textContent = jumlah;
+}
+
+function buatKartu(proyek, favorit) {
     const kartu = document.createElement("li");
 
     kartu.className = "kartu";
 
-    kartu.textContent = `${proyek.judul} - ${proyek.tahun}`;
+    const isi = document.createElement("span");
+    isi.textContent =
+        `${proyek.judul} - ${proyek.tahun}`;
+
+    const tombol = document.createElement("button");
+
+    tombol.type = "button";
+    tombol.className = "favorit";
+    tombol.dataset.id = proyek.id;
+    tombol.textContent =
+        favorit ? "★" : "☆";
+
+    kartu.append(isi, tombol);
 
     return kartu;
 }
 
-
-export function render(daftar) {
-
+export function render(state) {
     wadah.textContent = "";
 
-    if (daftar.length === 0) {
+    const daftar = saring(
+        state.daftarProyek,
+        state.kategoriAktif
+    );
 
+    if (daftar.length === 0) {
         kosong.textContent =
             "Belum ada proyek pada kategori ini.";
 
         kosong.hidden = false;
-
         return;
     }
 
     kosong.hidden = true;
 
     daftar.forEach((proyek) => {
+        const favorit =
+            state.favorit.includes(proyek.id);
 
-        const kartu = buatKartu(proyek);
+        const kartu =
+            buatKartu(proyek, favorit);
 
         wadah.append(kartu);
     });
+
+    tandaiTombolAktif(state);
 }
 
-
-export function aturMemuat(status) {
-
-    muat.hidden = !status;
-}
-
-
-export function tampilkanGalat(pesan) {
-
-    kosong.textContent = pesan;
-
-    kosong.hidden = false;
-}
-
-
-export function pasangFilter(daftarProyek) {
-
-    filter.addEventListener("click", (event) => {
-
-        const tombol = event.target.closest("button");
-
-        if (!tombol) {
-            return;
-        }
-
-        const kategori = tombol.dataset.kategori;
-
-        const terpilih =
-            kategori === "semua"
-                ? daftarProyek
-                : daftarProyek.filter(
-                    (proyek) =>
-                        proyek.kategori === kategori
-                );
-
-        tombolFilter.forEach((item) => {
-
-            item.classList.toggle(
-                "aktif",
-                item === tombol
-            );
-        });
-
-        render(terpilih);
+export function tandaiTombolAktif(state) {
+    tombolFilter.forEach((tombol) => {
+        tombol.classList.toggle(
+            "aktif",
+            tombol.dataset.kategori ===
+                state.kategoriAktif
+        );
     });
 }
 
-
-export function pasangValidasiForm() {
-
-    formMakanan.noValidate = true;
-
-    function validasiForm() {
-
-        const nama = namaMakanan.value.trim();
-        const jenis = jenisMakanan.value.trim();
-        const harga = hargaMakanan.value.trim();
-
-        let sah = true;
-
-
-        if (nama === "") {
-
-            namaMakanan.setAttribute(
-                "aria-invalid",
-                "true"
-            );
-
-            galatNama.textContent =
-                "Nama makanan wajib diisi.";
-
-            sah = false;
-
-        } else {
-
-            namaMakanan.setAttribute(
-                "aria-invalid",
-                "false"
-            );
-
-            galatNama.textContent = "";
-        }
-
-
-        if (jenis === "") {
-
-            jenisMakanan.setAttribute(
-                "aria-invalid",
-                "true"
-            );
-
-            galatJenis.textContent =
-                "Jenis makanan wajib diisi.";
-
-            sah = false;
-
-        } else {
-
-            jenisMakanan.setAttribute(
-                "aria-invalid",
-                "false"
-            );
-
-            galatJenis.textContent = "";
-        }
-
-
-        const nilaiHarga = Number(harga);
-
-        if (
-            harga === "" ||
-            Number.isNaN(nilaiHarga) ||
-            nilaiHarga < 0
-        ) {
-
-            hargaMakanan.setAttribute(
-                "aria-invalid",
-                "true"
-            );
-
-            galatHarga.textContent =
-                "Harga wajib diisi dan tidak boleh kurang dari 0.";
-
-            sah = false;
-
-        } else {
-
-            hargaMakanan.setAttribute(
-                "aria-invalid",
-                "false"
-            );
-
-            galatHarga.textContent = "";
-        }
-
-
-        tombolSimpan.disabled = !sah;
-
-        return sah;
-    }
-
-
-    namaMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
-
-    jenisMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
-
-    hargaMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
-
-
-    formMakanan.addEventListener(
-        "submit",
-        (event) => {
-
-            event.preventDefault();
-
-            const sah = validasiForm();
-
-            if (!sah) {
-
-                const inputSalah = [
-                    namaMakanan,
-                    jenisMakanan,
-                    hargaMakanan
-                ].find(
-                    (input) =>
-                        input.getAttribute(
-                            "aria-invalid"
-                        ) === "true"
-                );
-
-                if (inputSalah) {
-                    inputSalah.focus();
-                }
-            }
-        }
-    );
-
-
-    formMakanan.addEventListener(
-        "reset",
-        () => {
-
-            setTimeout(() => {
-                validasiForm();
-            }, 0);
-
-        }
-    );
-
-
-    validasiForm();
+export function aturMemuat(status) {
+    muat.hidden = !status;
 }
 
+export function tampilkanGalat(pesan) {
+    kosong.textContent = pesan;
+    kosong.hidden = false;
+}
 
-export function pasangFormMakanan() {
+export function tampilkanTema(teks) {
+    const teksTema =
+        document.querySelector("#teks-tema");
 
+    if (teksTema) {
+        teksTema.textContent = teks;
+    }
+}
+
+export function validasiForm() {
+    const nama =
+        namaMakanan.value.trim();
+
+    const jenis =
+        jenisMakanan.value.trim();
+
+    const harga =
+        hargaMakanan.value.trim();
+
+    let sah = true;
+
+    if (nama === "") {
+        namaMakanan.setAttribute(
+            "aria-invalid",
+            "true"
+        );
+
+        galatNama.textContent =
+            "Nama makanan wajib diisi.";
+
+        sah = false;
+    } else {
+        namaMakanan.setAttribute(
+            "aria-invalid",
+            "false"
+        );
+
+        galatNama.textContent = "";
+    }
+
+    if (jenis === "") {
+        jenisMakanan.setAttribute(
+            "aria-invalid",
+            "true"
+        );
+
+        galatJenis.textContent =
+            "Jenis makanan wajib diisi.";
+
+        sah = false;
+    } else {
+        jenisMakanan.setAttribute(
+            "aria-invalid",
+            "false"
+        );
+
+        galatJenis.textContent = "";
+    }
+
+    const nilaiHarga = Number(harga);
+
+    if (
+        harga === "" ||
+        Number.isNaN(nilaiHarga) ||
+        nilaiHarga < 0
+    ) {
+        hargaMakanan.setAttribute(
+            "aria-invalid",
+            "true"
+        );
+
+        galatHarga.textContent =
+            "Harga wajib diisi dan tidak boleh kurang dari 0.";
+
+        sah = false;
+    } else {
+        hargaMakanan.setAttribute(
+            "aria-invalid",
+            "false"
+        );
+
+        galatHarga.textContent = "";
+    }
+
+    tombolSimpan.disabled = !sah;
+
+    return sah;
+}
+
+export function tambahBarisMakanan(
+    nama,
+    jenis,
+    harga
+) {
     const daftarMakananBody =
         document.querySelector(
             "#daftar-makanan-body"
         );
 
+    const barisBaru =
+        document.createElement("tr");
 
-    formMakanan.addEventListener(
-        "submit",
-        (event) => {
+    const kolomNama =
+        document.createElement("th");
 
-            event.preventDefault();
+    kolomNama.scope = "row";
+    kolomNama.textContent = nama;
 
-            const nama =
-                namaMakanan.value.trim();
+    const kolomJenis =
+        document.createElement("td");
 
-            const jenis =
-                jenisMakanan.value.trim();
+    kolomJenis.textContent = jenis;
 
-            const harga =
-                Number(hargaMakanan.value);
+    const kolomHarga =
+        document.createElement("td");
 
+    kolomHarga.textContent =
+        `Rp${harga.toLocaleString("id-ID")}`;
 
-            if (
-                nama === "" ||
-                jenis === "" ||
-                Number.isNaN(harga) ||
-                harga < 0
-            ) {
-                return;
-            }
+    const kolomRating =
+        document.createElement("td");
 
+    kolomRating.textContent = "-";
 
-            const barisBaru =
-                document.createElement("tr");
-
-
-            const kolomNama =
-                document.createElement("th");
-
-            kolomNama.scope = "row";
-            kolomNama.textContent = nama;
-
-
-            const kolomJenis =
-                document.createElement("td");
-
-            kolomJenis.textContent = jenis;
-
-
-            const kolomHarga =
-                document.createElement("td");
-
-            kolomHarga.textContent =
-                `Rp${harga.toLocaleString("id-ID")}`;
-
-
-            const kolomRating =
-                document.createElement("td");
-
-            kolomRating.textContent = "-";
-
-
-            barisBaru.append(
-                kolomNama,
-                kolomJenis,
-                kolomHarga,
-                kolomRating
-            );
-
-
-            if (daftarMakananBody) {
-
-                daftarMakananBody.appendChild(
-                    barisBaru
-                );
-            }
-
-
-            formMakanan.reset();
-        }
+    barisBaru.append(
+        kolomNama,
+        kolomJenis,
+        kolomHarga,
+        kolomRating
     );
+
+    if (daftarMakananBody) {
+        daftarMakananBody.appendChild(
+            barisBaru
+        );
+    }
 }

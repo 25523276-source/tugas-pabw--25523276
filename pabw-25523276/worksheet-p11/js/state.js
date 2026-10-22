@@ -11,6 +11,7 @@ export const state = {
 
 export function isiProyek(daftar) {
     state.daftarProyek = daftar;
+    simpan(state);
     render(state);
 }
 

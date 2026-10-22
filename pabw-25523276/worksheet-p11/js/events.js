@@ -5,9 +5,10 @@ import {
 } from "./state.js";
 
 import {
-    tampilkanTema
+    tampilkanTema,
+    validasiForm,
+    tambahBarisMakanan
 } from "./dom.js";
-
 
 export function pasangPendengar() {
 
@@ -22,6 +23,18 @@ export function pasangPendengar() {
 
     const tema =
         document.querySelector("#tema");
+
+    const formMakanan =
+        document.querySelector("#form-makanan");
+
+    const namaMakanan =
+        document.querySelector("#nama-makanan");
+
+    const jenisMakanan =
+        document.querySelector("#jenis-makanan");
+
+    const hargaMakanan =
+        document.querySelector("#harga-makanan");
 
 
     filter.addEventListener(
@@ -87,4 +100,65 @@ export function pasangPendengar() {
             }
         );
     }
+
+
+    formMakanan.noValidate = true;
+
+    namaMakanan.addEventListener(
+        "input",
+        validasiForm
+    );
+
+    jenisMakanan.addEventListener(
+        "input",
+        validasiForm
+    );
+
+    hargaMakanan.addEventListener(
+        "input",
+        validasiForm
+    );
+
+
+    formMakanan.addEventListener(
+        "submit",
+        (event) => {
+
+            event.preventDefault();
+
+            if (!validasiForm()) {
+                return;
+            }
+
+            const nama =
+                namaMakanan.value.trim();
+
+            const jenis =
+                jenisMakanan.value.trim();
+
+            const harga =
+                Number(hargaMakanan.value);
+
+            tambahBarisMakanan(
+                nama,
+                jenis,
+                harga
+            );
+
+            formMakanan.reset();
+            validasiForm();
+        }
+    );
+
+
+    formMakanan.addEventListener(
+        "reset",
+        () => {
+            setTimeout(() => {
+                validasiForm();
+            }, 0);
+        }
+    );
+
+    validasiForm();
 }
