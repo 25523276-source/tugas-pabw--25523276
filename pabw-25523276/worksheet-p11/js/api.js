@@ -1,20 +1,13 @@
-[
-    {
-        "id": 1,
-        "judul": "Halaman Profil P6",
-        "tahun": 2026,
-        "kategori": "web"
-    },
-    {
-        "id": 2,
-        "judul": "Daftar Makanan Favorite Nazla",
-        "tahun": 2026,
-        "kategori": "web"
-    },
-    {
-        "id": 3,
-        "judul": "Latihan JavaScript P8",
-        "tahun": 2026,
-        "kategori": "javascript"
+const ALAMAT = "data/proyek.json";
+
+export async function ambilProyek() {
+    const respons = await fetch(ALAMAT);
+
+    console.log("status", respons.status, "ok", respons.ok);
+
+    if (!respons.ok) {
+        throw new Error("status " + respons.status);
     }
-]
+
+    return respons.json();
+}
