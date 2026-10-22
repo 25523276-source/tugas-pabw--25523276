@@ -10,7 +10,8 @@ import {
 import {
     tampilkanProfil,
     aturMemuat,
-    tampilkanGalat
+    tampilkanGalat,
+    tampilkanSemuaMakanan
 } from "./dom.js";
 
 import {
@@ -19,11 +20,13 @@ import {
 
 
 async function mulai() {
-
     pulihkan(muat());
 
-    pasangPendengar();
+    tampilkanSemuaMakanan(
+        state.daftarMakanan
+    );
 
+    pasangPendengar();
     tampilkanProfil(
         state.daftarProyek.length
     );
@@ -57,5 +60,4 @@ async function mulai() {
         aturMemuat(false);
     }
 }
-
 mulai();

@@ -8,25 +8,39 @@ const wadah = document.querySelector("#daftar-proyek");
 const kosong = document.querySelector("#kosong");
 const muat = document.querySelector("#muat");
 
-const namaElement = document.querySelector("#nama-profil");
-const peranElement = document.querySelector("#peran-profil");
-const keahlianElement = document.querySelector("#keahlian-profil");
-const jumlahProyekElement = document.querySelector("#jumlah-proyek");
+const namaElement =
+    document.querySelector("#nama-profil");
+const peranElement =
+    document.querySelector("#peran-profil");
+const keahlianElement =
+    document.querySelector("#keahlian-profil");
+const jumlahProyekElement =
+    document.querySelector("#jumlah-proyek");
+const tombolFilter =
+    document.querySelectorAll(".filter");
+const formMakanan =
+    document.querySelector("#form-makanan");
+const namaMakanan =
+    document.querySelector("#nama-makanan");
+const jenisMakanan =
+    document.querySelector("#jenis-makanan");
+const hargaMakanan =
+    document.querySelector("#harga-makanan");
+const tombolSimpan =
+    formMakanan
+        ? formMakanan.querySelector(
+            'button[type="submit"]'
+        )
+        : null;
 
-const tombolFilter = document.querySelectorAll(".filter");
+const galatNama =
+    document.querySelector("#galat-nama-makanan");
 
-const formMakanan = document.querySelector("#form-makanan");
-const namaMakanan = document.querySelector("#nama-makanan");
-const jenisMakanan = document.querySelector("#jenis-makanan");
-const hargaMakanan = document.querySelector("#harga-makanan");
+const galatJenis =
+    document.querySelector("#galat-jenis-makanan");
 
-const tombolSimpan = formMakanan
-    ? formMakanan.querySelector('button[type="submit"]')
-    : null;
-
-const galatNama = document.querySelector("#galat-nama-makanan");
-const galatJenis = document.querySelector("#galat-jenis-makanan");
-const galatHarga = document.querySelector("#galat-harga-makanan");
+const galatHarga =
+    document.querySelector("#galat-harga-makanan");
 
 
 export function tampilkanProfil(jumlah) {
@@ -50,18 +64,25 @@ export function tampilkanProfil(jumlah) {
 
 
 function buatKartu(proyek, favorit) {
-    const kartu = document.createElement("li");
+    const kartu =
+        document.createElement("li");
+
     kartu.className = "kartu";
 
-    const isi = document.createElement("span");
+    const isi =
+        document.createElement("span");
+
     isi.textContent =
         `${proyek.judul} - ${proyek.tahun}`;
 
-    const tombol = document.createElement("button");
+    const tombol =
+        document.createElement("button");
+
     tombol.type = "button";
     tombol.className = "favorit";
     tombol.dataset.id = proyek.id;
-    tombol.textContent = favorit ? "★" : "☆";
+    tombol.textContent =
+        favorit ? "★" : "☆";
 
     kartu.append(isi, tombol);
 
@@ -70,14 +91,18 @@ function buatKartu(proyek, favorit) {
 
 
 export function render(state) {
+    if (!wadah || !kosong) {
+        return;
+    }
+
     wadah.textContent = "";
 
-    const daftar = saring(
-        state.daftarProyek,
-        state.kategoriAktif
-    );
+    const daftar =
+        saring(
+            state.daftarProyek,
+            state.kategoriAktif
+        );
 
-    // Tetap tandai kategori aktif setiap kali render
     tandaiTombolAktif(state);
 
     if (daftar.length === 0) {
@@ -148,11 +173,17 @@ export function validasiForm() {
         return false;
     }
 
-    const nama = namaMakanan.value.trim();
-    const jenis = jenisMakanan.value.trim();
-    const harga = hargaMakanan.value.trim();
+    const nama =
+        namaMakanan.value.trim();
+
+    const jenis =
+        jenisMakanan.value.trim();
+
+    const harga =
+        hargaMakanan.value.trim();
 
     let sah = true;
+
 
     if (nama === "") {
         namaMakanan.setAttribute(
@@ -202,7 +233,8 @@ export function validasiForm() {
     }
 
 
-    const nilaiHarga = Number(harga);
+    const nilaiHarga =
+        Number(harga);
 
     if (
         harga === "" ||
@@ -253,27 +285,19 @@ export function tambahBarisMakanan(
 
     const barisBaru =
         document.createElement("tr");
-
     const kolomNama =
         document.createElement("th");
-
     kolomNama.scope = "row";
     kolomNama.textContent = nama;
-
     const kolomJenis =
         document.createElement("td");
-
     kolomJenis.textContent = jenis;
-
     const kolomHarga =
         document.createElement("td");
-
     kolomHarga.textContent =
         `Rp${harga.toLocaleString("id-ID")}`;
-
     const kolomRating =
         document.createElement("td");
-
     kolomRating.textContent = "-";
 
     barisBaru.append(
@@ -283,5 +307,28 @@ export function tambahBarisMakanan(
         kolomRating
     );
 
-    daftarMakananBody.appendChild(barisBaru);
+    daftarMakananBody.appendChild(
+        barisBaru
+    );
+}
+
+
+export function tampilkanSemuaMakanan(daftar) {
+    const daftarMakananBody =
+        document.querySelector(
+            "#daftar-makanan-body"
+        );
+
+    if (!daftarMakananBody) {
+        return;
+    }
+
+    daftarMakananBody.textContent = "";
+    daftar.forEach((makanan) => {
+        tambahBarisMakanan(
+            makanan.nama,
+            makanan.jenis,
+            makanan.harga
+        );
+    });
 }

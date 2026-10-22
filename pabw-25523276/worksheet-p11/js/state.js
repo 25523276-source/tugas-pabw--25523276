@@ -1,12 +1,11 @@
 import { render } from "./dom.js";
-
 const KUNCI = "pabw-p11";
 const VERSI = 2;
-
 export const state = {
     daftarProyek: [],
     kategoriAktif: "semua",
-    favorit: []
+    favorit: [],
+    daftarMakanan: []
 };
 
 export function isiProyek(daftar) {
@@ -32,21 +31,29 @@ export function tambahFavorit(id) {
             id
         ];
     }
-
     simpan(state);
     render(state);
 }
 
+export function tambahMakanan(makanan) {
+    state.daftarMakanan = [
+        ...state.daftarMakanan,
+        makanan
+    ];
+    simpan(state);
+}
+
 export function simpan(state) {
-    const isi = {
+    const data = {
         versi: VERSI,
         kategoriAktif: state.kategoriAktif,
-        favorit: state.favorit
+        favorit: state.favorit,
+        daftarMakanan: state.daftarMakanan
     };
 
     localStorage.setItem(
         KUNCI,
-        JSON.stringify(isi)
+        JSON.stringify(data)
     );
 }
 
@@ -70,8 +77,6 @@ export function muat() {
 
 export function pulihkan(isi) {
     if (!isi) {
-        state.kategoriAktif = "semua";
-        state.favorit = [];
         return;
     }
 
@@ -79,16 +84,16 @@ export function pulihkan(isi) {
         isi.kategoriAktif ?? "semua";
 
     state.favorit =
-        Array.isArray(isi.favorit)
-            ? isi.favorit
-            : [];
+        isi.favorit ?? [];
+
+    state.daftarMakanan =
+        isi.daftarMakanan ?? [];
 }
 
 export function aturUlang() {
     localStorage.removeItem(KUNCI);
-
     state.kategoriAktif = "semua";
     state.favorit = [];
-
+    state.daftarMakanan = [];
     render(state);
 }

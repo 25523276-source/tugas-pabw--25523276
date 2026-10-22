@@ -1,6 +1,7 @@
 import {
     pilihKategori,
     tambahFavorit,
+    tambahMakanan,
     aturUlang
 } from "./state.js";
 
@@ -12,33 +13,24 @@ import {
 
 
 export function pasangPendengar() {
-
     const filter =
         document.querySelector("#filter");
-
     const daftarProyek =
         document.querySelector("#daftar-proyek");
-
     const tombolReset =
         document.querySelector("#atur-ulang");
-
     const tema =
         document.querySelector("#tema");
-
     const formMakanan =
         document.querySelector("#form-makanan");
-
     const namaMakanan =
         document.querySelector("#nama-makanan");
-
     const jenisMakanan =
         document.querySelector("#jenis-makanan");
-
     const hargaMakanan =
         document.querySelector("#harga-makanan");
 
 
-    // Filter kategori
     if (filter) {
         filter.addEventListener(
             "click",
@@ -59,7 +51,6 @@ export function pasangPendengar() {
     }
 
 
-    // Tombol favorit
     if (daftarProyek) {
         daftarProyek.addEventListener(
             "click",
@@ -80,7 +71,6 @@ export function pasangPendengar() {
     }
 
 
-    // Tombol Atur Ulang
     if (tombolReset) {
         tombolReset.addEventListener(
             "click",
@@ -91,7 +81,6 @@ export function pasangPendengar() {
     }
 
 
-    // Tema
     if (tema) {
         tema.addEventListener(
             "change",
@@ -110,8 +99,6 @@ export function pasangPendengar() {
         );
     }
 
-
-    // Form makanan
     if (!formMakanan) {
         return;
     }
@@ -126,14 +113,12 @@ export function pasangPendengar() {
         );
     }
 
-
     if (jenisMakanan) {
         jenisMakanan.addEventListener(
             "input",
             validasiForm
         );
     }
-
 
     if (hargaMakanan) {
         hargaMakanan.addEventListener(
@@ -142,8 +127,6 @@ export function pasangPendengar() {
         );
     }
 
-
-    // Submit form
     formMakanan.addEventListener(
         "submit",
         (event) => {
@@ -163,6 +146,13 @@ export function pasangPendengar() {
             const harga =
                 Number(hargaMakanan.value);
 
+            const makanan = {
+                nama,
+                jenis,
+                harga
+            };
+
+            tambahMakanan(makanan);
             tambahBarisMakanan(
                 nama,
                 jenis,
@@ -170,13 +160,10 @@ export function pasangPendengar() {
             );
 
             formMakanan.reset();
-
             validasiForm();
         }
     );
-
-
-    // Reset form
+    
     formMakanan.addEventListener(
         "reset",
         () => {
@@ -185,8 +172,5 @@ export function pasangPendengar() {
             }, 0);
         }
     );
-
-
-    // Validasi awal
     validasiForm();
 }
