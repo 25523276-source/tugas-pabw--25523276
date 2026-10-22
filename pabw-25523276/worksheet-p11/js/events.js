@@ -10,6 +10,7 @@ import {
     tambahBarisMakanan
 } from "./dom.js";
 
+
 export function pasangPendengar() {
 
     const filter =
@@ -37,42 +38,49 @@ export function pasangPendengar() {
         document.querySelector("#harga-makanan");
 
 
-    filter.addEventListener(
-        "click",
-        (event) => {
+    // Filter kategori
+    if (filter) {
+        filter.addEventListener(
+            "click",
+            (event) => {
 
-            const tombol =
-                event.target.closest(".filter");
+                const tombol =
+                    event.target.closest(".filter");
 
-            if (!tombol) {
-                return;
+                if (!tombol) {
+                    return;
+                }
+
+                pilihKategori(
+                    tombol.dataset.kategori
+                );
             }
-
-            pilihKategori(
-                tombol.dataset.kategori
-            );
-        }
-    );
+        );
+    }
 
 
-    daftarProyek.addEventListener(
-        "click",
-        (event) => {
+    // Tombol favorit
+    if (daftarProyek) {
+        daftarProyek.addEventListener(
+            "click",
+            (event) => {
 
-            const tombol =
-                event.target.closest(".favorit");
+                const tombol =
+                    event.target.closest(".favorit");
 
-            if (!tombol) {
-                return;
+                if (!tombol) {
+                    return;
+                }
+
+                tambahFavorit(
+                    Number(tombol.dataset.id)
+                );
             }
-
-            tambahFavorit(
-                Number(tombol.dataset.id)
-            );
-        }
-    );
+        );
+    }
 
 
+    // Tombol Atur Ulang
     if (tombolReset) {
         tombolReset.addEventListener(
             "click",
@@ -83,6 +91,7 @@ export function pasangPendengar() {
     }
 
 
+    // Tema
     if (tema) {
         tema.addEventListener(
             "change",
@@ -102,24 +111,39 @@ export function pasangPendengar() {
     }
 
 
+    // Form makanan
+    if (!formMakanan) {
+        return;
+    }
+
     formMakanan.noValidate = true;
 
-    namaMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
 
-    jenisMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
-
-    hargaMakanan.addEventListener(
-        "input",
-        validasiForm
-    );
+    if (namaMakanan) {
+        namaMakanan.addEventListener(
+            "input",
+            validasiForm
+        );
+    }
 
 
+    if (jenisMakanan) {
+        jenisMakanan.addEventListener(
+            "input",
+            validasiForm
+        );
+    }
+
+
+    if (hargaMakanan) {
+        hargaMakanan.addEventListener(
+            "input",
+            validasiForm
+        );
+    }
+
+
+    // Submit form
     formMakanan.addEventListener(
         "submit",
         (event) => {
@@ -146,11 +170,13 @@ export function pasangPendengar() {
             );
 
             formMakanan.reset();
+
             validasiForm();
         }
     );
 
 
+    // Reset form
     formMakanan.addEventListener(
         "reset",
         () => {
@@ -160,5 +186,7 @@ export function pasangPendengar() {
         }
     );
 
+
+    // Validasi awal
     validasiForm();
 }

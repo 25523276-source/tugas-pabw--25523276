@@ -8,59 +8,49 @@ const wadah = document.querySelector("#daftar-proyek");
 const kosong = document.querySelector("#kosong");
 const muat = document.querySelector("#muat");
 
-const namaElement =
-    document.querySelector("#nama-profil");
+const namaElement = document.querySelector("#nama-profil");
+const peranElement = document.querySelector("#peran-profil");
+const keahlianElement = document.querySelector("#keahlian-profil");
+const jumlahProyekElement = document.querySelector("#jumlah-proyek");
 
-const peranElement =
-    document.querySelector("#peran-profil");
+const tombolFilter = document.querySelectorAll(".filter");
 
-const keahlianElement =
-    document.querySelector("#keahlian-profil");
+const formMakanan = document.querySelector("#form-makanan");
+const namaMakanan = document.querySelector("#nama-makanan");
+const jenisMakanan = document.querySelector("#jenis-makanan");
+const hargaMakanan = document.querySelector("#harga-makanan");
 
-const jumlahProyekElement =
-    document.querySelector("#jumlah-proyek");
+const tombolSimpan = formMakanan
+    ? formMakanan.querySelector('button[type="submit"]')
+    : null;
 
-const tombolFilter =
-    document.querySelectorAll(".filter");
+const galatNama = document.querySelector("#galat-nama-makanan");
+const galatJenis = document.querySelector("#galat-jenis-makanan");
+const galatHarga = document.querySelector("#galat-harga-makanan");
 
-const formMakanan =
-    document.querySelector("#form-makanan");
-
-const namaMakanan =
-    document.querySelector("#nama-makanan");
-
-const jenisMakanan =
-    document.querySelector("#jenis-makanan");
-
-const hargaMakanan =
-    document.querySelector("#harga-makanan");
-
-const tombolSimpan =
-    formMakanan.querySelector(
-        'button[type="submit"]'
-    );
-
-const galatNama =
-    document.querySelector("#galat-nama-makanan");
-
-const galatJenis =
-    document.querySelector("#galat-jenis-makanan");
-
-const galatHarga =
-    document.querySelector("#galat-harga-makanan");
 
 export function tampilkanProfil(jumlah) {
-    namaElement.textContent = profil.nama;
-    peranElement.textContent = profil.peran;
-    keahlianElement.textContent =
-        formatKeahlian(profil.keahlian);
+    if (namaElement) {
+        namaElement.textContent = profil.nama;
+    }
 
-    jumlahProyekElement.textContent = jumlah;
+    if (peranElement) {
+        peranElement.textContent = profil.peran;
+    }
+
+    if (keahlianElement) {
+        keahlianElement.textContent =
+            formatKeahlian(profil.keahlian);
+    }
+
+    if (jumlahProyekElement) {
+        jumlahProyekElement.textContent = jumlah;
+    }
 }
+
 
 function buatKartu(proyek, favorit) {
     const kartu = document.createElement("li");
-
     kartu.className = "kartu";
 
     const isi = document.createElement("span");
@@ -68,17 +58,16 @@ function buatKartu(proyek, favorit) {
         `${proyek.judul} - ${proyek.tahun}`;
 
     const tombol = document.createElement("button");
-
     tombol.type = "button";
     tombol.className = "favorit";
     tombol.dataset.id = proyek.id;
-    tombol.textContent =
-        favorit ? "★" : "☆";
+    tombol.textContent = favorit ? "★" : "☆";
 
     kartu.append(isi, tombol);
 
     return kartu;
 }
+
 
 export function render(state) {
     wadah.textContent = "";
@@ -87,6 +76,9 @@ export function render(state) {
         state.daftarProyek,
         state.kategoriAktif
     );
+
+    // Tetap tandai kategori aktif setiap kali render
+    tandaiTombolAktif(state);
 
     if (daftar.length === 0) {
         kosong.textContent =
@@ -107,28 +99,34 @@ export function render(state) {
 
         wadah.append(kartu);
     });
-
-    tandaiTombolAktif(state);
 }
+
 
 export function tandaiTombolAktif(state) {
     tombolFilter.forEach((tombol) => {
         tombol.classList.toggle(
             "aktif",
             tombol.dataset.kategori ===
-                state.kategoriAktif
+            state.kategoriAktif
         );
     });
 }
 
+
 export function aturMemuat(status) {
-    muat.hidden = !status;
+    if (muat) {
+        muat.hidden = !status;
+    }
 }
 
+
 export function tampilkanGalat(pesan) {
-    kosong.textContent = pesan;
-    kosong.hidden = false;
+    if (kosong) {
+        kosong.textContent = pesan;
+        kosong.hidden = false;
+    }
 }
+
 
 export function tampilkanTema(teks) {
     const teksTema =
@@ -139,15 +137,20 @@ export function tampilkanTema(teks) {
     }
 }
 
+
 export function validasiForm() {
-    const nama =
-        namaMakanan.value.trim();
+    if (
+        !namaMakanan ||
+        !jenisMakanan ||
+        !hargaMakanan ||
+        !tombolSimpan
+    ) {
+        return false;
+    }
 
-    const jenis =
-        jenisMakanan.value.trim();
-
-    const harga =
-        hargaMakanan.value.trim();
+    const nama = namaMakanan.value.trim();
+    const jenis = jenisMakanan.value.trim();
+    const harga = hargaMakanan.value.trim();
 
     let sah = true;
 
@@ -157,8 +160,10 @@ export function validasiForm() {
             "true"
         );
 
-        galatNama.textContent =
-            "Nama makanan wajib diisi.";
+        if (galatNama) {
+            galatNama.textContent =
+                "Nama makanan wajib diisi.";
+        }
 
         sah = false;
     } else {
@@ -167,8 +172,11 @@ export function validasiForm() {
             "false"
         );
 
-        galatNama.textContent = "";
+        if (galatNama) {
+            galatNama.textContent = "";
+        }
     }
+
 
     if (jenis === "") {
         jenisMakanan.setAttribute(
@@ -176,8 +184,10 @@ export function validasiForm() {
             "true"
         );
 
-        galatJenis.textContent =
-            "Jenis makanan wajib diisi.";
+        if (galatJenis) {
+            galatJenis.textContent =
+                "Jenis makanan wajib diisi.";
+        }
 
         sah = false;
     } else {
@@ -186,8 +196,11 @@ export function validasiForm() {
             "false"
         );
 
-        galatJenis.textContent = "";
+        if (galatJenis) {
+            galatJenis.textContent = "";
+        }
     }
+
 
     const nilaiHarga = Number(harga);
 
@@ -201,8 +214,10 @@ export function validasiForm() {
             "true"
         );
 
-        galatHarga.textContent =
-            "Harga wajib diisi dan tidak boleh kurang dari 0.";
+        if (galatHarga) {
+            galatHarga.textContent =
+                "Harga wajib diisi dan tidak boleh kurang dari 0.";
+        }
 
         sah = false;
     } else {
@@ -211,13 +226,16 @@ export function validasiForm() {
             "false"
         );
 
-        galatHarga.textContent = "";
+        if (galatHarga) {
+            galatHarga.textContent = "";
+        }
     }
 
     tombolSimpan.disabled = !sah;
 
     return sah;
 }
+
 
 export function tambahBarisMakanan(
     nama,
@@ -228,6 +246,10 @@ export function tambahBarisMakanan(
         document.querySelector(
             "#daftar-makanan-body"
         );
+
+    if (!daftarMakananBody) {
+        return;
+    }
 
     const barisBaru =
         document.createElement("tr");
@@ -261,9 +283,5 @@ export function tambahBarisMakanan(
         kolomRating
     );
 
-    if (daftarMakananBody) {
-        daftarMakananBody.appendChild(
-            barisBaru
-        );
-    }
+    daftarMakananBody.appendChild(barisBaru);
 }
