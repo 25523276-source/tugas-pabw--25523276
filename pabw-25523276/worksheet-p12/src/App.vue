@@ -1,15 +1,20 @@
-
 <script setup>
-import { onMounted, watch } from "vue"
+import { onMounted, watch } from 'vue'
 
-import KepalaProfil from "../compenents/KepalaProfil.vue"
-import TombolFilter from "../compenents/TombolFilter.vue"
-import DaftarProyek from "../compenents/DaftarProyek.vue"
-import FormKontak from "../compenents/FormKontak.vue"
+import KepalaProfil from './components/KepalaProfil.vue'
+import TombolFilter from './components/TombolFilter.vue'
+import DaftarProyek from './components/DaftarProyek.vue'
+import FormKontak from './components/FormKontak.vue'
 
-import { profil } from "./data.js"
-import { state, simpan, muat, pulihkan, isiProyek } from "./state.js"
-import { ambilProyek } from "./api.js"
+import { profil } from './data.js'
+import {
+  state,
+  simpan,
+  muat,
+  pulihkan,
+  isiProyek
+} from './state.js'
+import { ambilProyek } from './api.js'
 
 onMounted(async () => {
   pulihkan(muat())
@@ -18,7 +23,7 @@ onMounted(async () => {
     isiProyek(await ambilProyek())
   } catch (galat) {
     state.galat =
-      "Data gagal dimuat. Periksa koneksi, lalu muat ulang."
+      'Data gagal dimuat. Periksa koneksi, lalu muat ulang.'
   } finally {
     state.memuat = false
   }
