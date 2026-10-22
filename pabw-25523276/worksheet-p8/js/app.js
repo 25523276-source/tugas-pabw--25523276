@@ -1,7 +1,3 @@
-// ========================================
-// DATA PROYEK
-// ========================================
-
 const daftarProyek = [
     {
         judul: "Halaman Profil P6",
@@ -23,15 +19,11 @@ const daftarProyek = [
 ];
 
 
-// ========================================
-// DATA PROFIL
-// ========================================
+
 
 const profil = {
     nama: "Nazla Cahyani Sofyan",
-
     peran: "Mahasiswa Informatika",
-
     keahlian: [
         "HTML",
         "CSS",
@@ -42,47 +34,22 @@ const profil = {
 };
 
 
-// ========================================
-// FUNGSI MURNI 1
-// ========================================
-
 function buatPerkenalan({ nama, peran }) {
-
     return `${nama} — ${peran}`;
 
 }
 
-
-// ========================================
-// FUNGSI MURNI 2
-// ========================================
-
 function formatKeahlian(daftar) {
-
     return daftar.join(" · ");
 
 }
 
-
-// ========================================
-// MENJALANKAN FUNGSI
-// ========================================
-
 const perkenalan =
     buatPerkenalan(profil);
-
 const hasilKeahlian =
     formatKeahlian(profil.keahlian);
-
 console.log(perkenalan);
-
 console.log(hasilKeahlian);
-
-
-// ========================================
-// ARRAY METHOD MAP
-// ========================================
-
 const judulProyek =
     daftarProyek.map((proyek) => {
 
@@ -91,13 +58,8 @@ const judulProyek =
     });
 
 console.log("Daftar judul proyek:");
-
 console.table(judulProyek);
 
-
-// ========================================
-// ARRAY METHOD FILTER
-// ========================================
 
 const proyekSelesai =
     daftarProyek.filter((proyek) => {
@@ -107,13 +69,7 @@ const proyekSelesai =
     });
 
 console.log("Proyek yang sudah selesai:");
-
 console.table(proyekSelesai);
-
-
-// ========================================
-// ARRAY METHOD FIND
-// ========================================
 
 const proyekDicari =
     daftarProyek.find((proyek) => {
@@ -137,54 +93,32 @@ console.table(proyekUrut);
 console.log("Data asli setelah sort:");
 console.table(daftarProyek);
 
-// ========================================
-// MENAMPILKAN DATA PROFIL KE HTML
-// ========================================
-
 const namaElement =
     document.querySelector("#nama-profil");
-
 const peranElement =
     document.querySelector("#peran-profil");
-
 const keahlianElement =
     document.querySelector("#keahlian-profil");
-
 const jumlahProyekElement =
     document.querySelector("#jumlah-proyek");
 
-
-// Nama
-
 if (namaElement) {
-
     namaElement.textContent =
         profil.nama;
 
 }
 
-
-// Peran
-
 if (peranElement) {
-
     peranElement.textContent =
         profil.peran;
 
 }
 
-
-// Keahlian
-
 if (keahlianElement) {
-
     keahlianElement.textContent =
         hasilKeahlian;
 
 }
-
-
-// Jumlah proyek
 
 if (jumlahProyekElement) {
 
@@ -193,41 +127,25 @@ if (jumlahProyekElement) {
 
 }
 
-
-// ========================================
-// MENAMPILKAN DAFTAR PROYEK KE HTML
-// ========================================
-
 const daftarProyekElement =
     document.querySelector("#daftar-proyek");
 
 
 if (daftarProyekElement) {
-
     daftarProyekElement.innerHTML = "";
-
     daftarProyek.forEach((proyek) => {
-
         const item =
             document.createElement("li");
-
         item.textContent =
             `${proyek.judul} - ${proyek.tahun}`;
 
         daftarProyekElement.appendChild(item);
-
     });
-
 }
 
 
-// ========================================
-// FORM TAMBAH MAKANAN
-// ========================================
-
 const formMakanan =
     document.querySelector("#form-makanan");
-
 const daftarMakananBody =
     document.querySelector("#daftar-makanan-body");
 
@@ -237,15 +155,12 @@ if (formMakanan) {
     formMakanan.addEventListener(
         "submit",
         function (event) {
-
             event.preventDefault();
-
 
             const namaMakanan =
                 document.querySelector(
                     "#nama-makanan"
                 ).value;
-
 
             const jenisMakanan =
                 document.querySelector(
@@ -258,8 +173,6 @@ if (formMakanan) {
                     "#harga-makanan"
                 ).value;
 
-
-            // Mengubah string menjadi angka
 
             const harga =
                 Number(hargaMakanan);
@@ -289,14 +202,11 @@ if (formMakanan) {
 
 
             if (daftarMakananBody) {
-
                 daftarMakananBody.appendChild(
                     barisBaru
                 );
 
             }
-
-
             formMakanan.reset();
 
         }
@@ -304,21 +214,9 @@ if (formMakanan) {
 
 }
 
-
-// ========================================
-// TEMA TERANG / GELAP
-// ========================================
-
 const tema =
     document.querySelector("#tema");
-
-
-// Tidak perlu menampilkan checkbox.
-// Tema berubah ketika tulisan "Tema Gelap"
-// ditekan.
-
 if (tema) {
-
     tema.addEventListener(
         "change",
         function () {
@@ -330,10 +228,7 @@ if (tema) {
             } else {
 
                 console.log("Tema Terang aktif");
-
             }
-
         }
     );
-
 }

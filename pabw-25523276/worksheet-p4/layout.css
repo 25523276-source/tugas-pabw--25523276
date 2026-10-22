@@ -34,17 +34,11 @@ nav a:hover {
     text-decoration: underline;
 }
 
-
-/* KERANGKA HALAMAN */
-
 .page {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100dvh;
 }
-
-
-/* BAGIAN UTAMA */
 
 .isi {
     display: grid;
@@ -60,9 +54,6 @@ nav a:hover {
     gap: var(--space-6);
     padding-block: var(--space-6);
 }
-
-
-/* MENU KIRI */
 
 .sisi {
     grid-area: sisi;
@@ -80,24 +71,15 @@ nav a:hover {
     padding-left: var(--space-4);
 }
 
-
-/* BAGIAN TABEL + GAMBAR */
-
 .utama {
     grid-area: utama;
     min-width: 0;
 }
 
-
-/* BAGIAN FORM */
-
 .bawah {
     grid-area: bawah;
     min-width: 0;
 }
-
-
-/* FOOTER */
 
 footer {
     padding-block: var(--space-4);
