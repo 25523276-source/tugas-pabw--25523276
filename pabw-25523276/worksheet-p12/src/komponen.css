@@ -1,0 +1,88 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+
+}
+
+th,td {
+
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  text-align: left;
+
+}
+
+
+th {
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+
+
+tbody th[scope="row"] {
+  background: var(--color-surface);
+  color: var(--color-fg);
+
+}
+
+
+
+tbody td {
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+label
+ {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font: inherit;
+}
+
+button {
+  padding: var(--space-2) var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-fg);
+  cursor: pointer;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+
+
+img {
+  width: 350px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
